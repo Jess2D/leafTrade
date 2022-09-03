@@ -1,6 +1,6 @@
 # Leaf Trade
 
-![logo](https://github.com/Jess2D/theodinproject-restaurant-page/blob/master/img/Screenshot1.PNG)
+![logo](https://github.com/Jess2D/leafTrade/blob/main/client/assets/logo.png)
 
 ## Purpose
 
