@@ -1,6 +1,6 @@
 # misc
 **/.DS_Store
-
+config.env
 
 # dependencies
 node_modules
