@@ -9,6 +9,7 @@ import Navbar from "./components/navbar/Navbar";
 import Product from "./components/product/ProductView";
 import NewListing from "./components/listing/NewListing";
 import MagageListing from "./components/listing/ManageListing";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/newListing" element={<NewListing />} />
         <Route path="/manageListing" element={<MagageListing />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
