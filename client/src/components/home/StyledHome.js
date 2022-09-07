@@ -72,49 +72,26 @@ import styled from 'styled-components'
 // ****************************************
 
 
-// //Tests Monday 5 Sep//
-// const Button = styled.button`
-//   background: blue;
-//   border-radius: 3px;
-//   border: none;
-//   color: white;
-// `
 
-// // Create a Title component that'll render an <h1> tag with some styles
-// const Title = styled.h1`
-//   font-size: 1.5em;
-//   text-align: center;
-//   color: palevioletred;
-// `;
-
-// // Create a Wrapper component that'll render a <section> tag with some styles
-// const Wrapper = styled.section`
-//   padding: 4em;
-//   background: papayawhip;
-// `;
-
-//You should import individual components like: react-bootstrap/Button rather than the entire library.//
-
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Image from 'react-bootstrap/Image'
-
-
-//Tests Monday 5 Sep//
-
-
-//Wednesdday 7 Sep//
+//Wednesday 7 Sep//
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import bgheroimage from "../../assets/homeassets/bgheroimage.jpeg"
 
-function StyledHome() {
+
+
+
+
+const StyledHome = () => {
   return (
     <Container fluid>
       <Row>
-        <Col>1 of 1</Col> 
-          
+          <img src={bgheroimage} alt="heroplants"/>
+              <Col>
+                  <h1>Bring Nature into your life</h1>
+              </Col>
       </Row>
     </Container>
   );
