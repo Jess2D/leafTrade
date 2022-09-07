@@ -6,6 +6,7 @@ import divider from "../../assets/Divider.png";
 
 const Background = styled.div`
   background: #f2f2f2;
+  padding: 22px;
 `;
 const Sizes = styled.div`
   font-size: 10px;
