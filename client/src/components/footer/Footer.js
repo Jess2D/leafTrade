@@ -58,7 +58,13 @@ const Footer = () => {
           </Nav.Item>
         </Nav>
         <Container>
-          <img src={divider} alt="Divider" className="mx-auto" />
+          <Nav.Item>
+            {" "}
+            <div className="text-center">
+              {" "}
+              <img src={divider} alt="Divider" />{" "}
+            </div>
+          </Nav.Item>
           <div className="mx-auto text-center">
             <Sizes>
               © Copyright 2022 Leaf Trade. All rights reserved. JM Designs
