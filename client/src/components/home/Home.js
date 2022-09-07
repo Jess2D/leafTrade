@@ -1,7 +1,9 @@
+import StyledHome from "./StyledHome";
+
 function Home() {
   return (
     <div>
-      <p>home component</p>
+      <StyledHome/>
     </div>
   );
 }
