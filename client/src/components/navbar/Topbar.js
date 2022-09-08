@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Button, Container, Navbar, Nav, Form } from "react-bootstrap";
+import { Button, Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 
 const Background = styled.div`
