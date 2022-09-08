@@ -1,7 +1,3 @@
-import styled from 'styled-components'
-
-
-
 
 //Jessica template//
 
@@ -74,26 +70,106 @@ import styled from 'styled-components'
 
 
 //Wednesday 7 Sep//
-
+import styled from 'styled-components'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import bgheroimage from "../../assets/homeassets/bgheroimage.jpeg"
 
 
 
-
+const Imagebgmain = styled.div`
+  background-image: url(${bgheroimage});
+`;
 
 const StyledHome = () => {
   return (
-    <Container fluid>
-      <Row>
-          <img src={bgheroimage} alt="heroplants"/>
+    <div>
+      {/* //Main Image// */}
+      <Container fluid>
+                <Col>
+             <div>
+              <Imagebgmain>
+             <h1 className="text-center text-wrap">Bring Nature into your life</h1>
+             {/* <img src={imagebgmain} class="img-fluid bg-image-container" alt="bgheroimage" /> */}
+             </Imagebgmain>
+              </div> 
+                </Col>
+        </Container>
+
+
+        {/* Air purifying */}
+          <Container>
+            <Row>
               <Col>
-                  <h1>Bring Nature into your life</h1>
+              <h1 className="text-center text-wrap">Air purifying plants</h1>
+              <p className="text-center">Looking to reduce toxins in your home? These air cleaning plants will help you to improve air quality</p>
               </Col>
-      </Row>
-    </Container>
+            </Row>
+            <Row>
+              <Col>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                    <Card.Body>
+                        <Card.Title>Card Title</Card.Title>
+                             <Card.Text>
+                              Some quick example text to build on the card title and make up the
+                              bulk of the card's content.
+                             </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                      </Card.Body>
+                </Card>
+              </Col>
+
+              <Col>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                    <Card.Body>
+                        <Card.Title>Card Title</Card.Title>
+                             <Card.Text>
+                              Some quick example text to build on the card title and make up the
+                              bulk of the card's content.
+                             </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                      </Card.Body>
+                </Card>
+              </Col>
+
+              <Col>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                    <Card.Body>
+                        <Card.Title>Card Title</Card.Title>
+                             <Card.Text>
+                              Some quick example text to build on the card title and make up the
+                              bulk of the card's content.
+                             </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                      </Card.Body>
+                </Card>
+              </Col>
+
+            <Col>
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src="holder.js/100px180" />
+                    <Card.Body>
+                        <Card.Title>Card Title</Card.Title>
+                             <Card.Text>
+                              Some quick example text to build on the card title and make up the
+                              bulk of the card's content.
+                             </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                      </Card.Body>
+                </Card>
+              </Col>
+
+           </Row>
+          </Container>
+  
+    
+    </div>
   );
 }
 
