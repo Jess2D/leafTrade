@@ -78,26 +78,37 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import bgheroimage from "../../assets/homeassets/bgheroimage.jpeg"
 
-
-
 const Imagebgmain = styled.div`
   background-image: url(${bgheroimage});
+  height: 900px;
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+`;
+
+const MainTitle = styled.div`
+  font-size: 70px;
+  line-height: 70px;   /* within paragraph */
+  margin: 30px; /* between paragraphs */
+  font-weight: bold;
 `;
 
 const StyledHome = () => {
   return (
     <div>
-      {/* //Main Image// */}
-      <Container fluid>
-                <Col>
-             <div>
-              <Imagebgmain>
-             <h1 className="text-center text-wrap">Bring Nature into your life</h1>
-             {/* <img src={imagebgmain} class="img-fluid bg-image-container" alt="bgheroimage" /> */}
-             </Imagebgmain>
-              </div> 
-                </Col>
-        </Container>
+        <Imagebgmain>
+            <Container fluid>
+                <MainTitle>
+                  <div className="text-center text-wrap">
+                    <p>Bring Nature into</p>
+                    <p>your life</p>
+                  </div>
+                </MainTitle>
+                <p className="text-center">Your online shop for buying indoor plants, outdoor plants & kitchen herbs</p>
+            </Container>
+        </Imagebgmain>
 
 
         {/* Air purifying */}
@@ -113,7 +124,7 @@ const StyledHome = () => {
               <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>Peace Lily</Card.Title>
                              <Card.Text>
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
@@ -127,7 +138,7 @@ const StyledHome = () => {
               <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>Snake Plant</Card.Title>
                              <Card.Text>
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
@@ -141,7 +152,7 @@ const StyledHome = () => {
               <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>Aloe Vera</Card.Title>
                              <Card.Text>
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
@@ -155,7 +166,7 @@ const StyledHome = () => {
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src="holder.js/100px180" />
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>Rubber Plant</Card.Title>
                              <Card.Text>
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
