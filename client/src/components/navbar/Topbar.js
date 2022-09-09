@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Button, Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Background = styled.div`
   background: #506053;
@@ -50,7 +51,9 @@ const TopBar = () => {
               <Button variant="outline-light">Sell</Button>
             </Padding>
             <Padding>
-              <Button variant="outline-light">Shop</Button>
+              <Button variant="outline-light">
+                <Link to="/catalog">Shop</Link>
+              </Button>
             </Padding>
           </Container>
         </Navbar>
