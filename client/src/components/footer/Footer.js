@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Nav } from "react-bootstrap";
 import plant from "../../assets/logo2.png";
 import divider from "../../assets/Divider.png";
 
