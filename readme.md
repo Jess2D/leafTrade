@@ -1,6 +1,6 @@
 # Leaf Trade
 
-![logo](https://github.com/Jess2D/leafTrade/blob/main/client/assets/logo.png)
+![logo](https://raw.githubusercontent.com/Jess2D/leafTrade/main/client/src/assets/logo.png)
 
 ## Purpose
 
