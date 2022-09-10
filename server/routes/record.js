@@ -14,7 +14,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 // This section will help you get a list of all the users.
 userRoutes.route("/user").get(function (req, res) {
-  let db_connect = dbo.getDb("leafTrade");
+  let db_connect = dbo.getDb("LeafTrade");
   db_connect
     .collection("users")
     .find({})
@@ -49,7 +49,7 @@ productRoutes.route("/user/add").post(function (req, response) {
 
 // This section will help you get a list of all the products.
 productRoutes.route("/product").get(function (req, res) {
-  let db_connect = dbo.getDb("leafTrade");
+  let db_connect = dbo.getDb("LeafTrade");
   db_connect
     .collection("products")
     .find({})

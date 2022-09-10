@@ -23,7 +23,7 @@ const GreenBar = styled.div`
 
 const Footer = () => {
   return (
-    <div className="fixed-bottom">
+    <div className="">
       <Background>
         <Nav className="justify-content-center">
           <Nav.Item>
