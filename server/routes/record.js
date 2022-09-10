@@ -1,10 +1,9 @@
 const express = require("express");
 
-// productRoutes is an instance of the express router.
+// apiRoutes is an instance of the express router.
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /product.
-const productRoutes = express.Router();
-const userRoutes = express.Router();
+const apiRoutes = express.Router();
 
 // This will help us connect to the database
 const dbo = require("../db/conn");
@@ -13,7 +12,8 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
 
 // This section will help you get a list of all the users.
-userRoutes.route("/user").get(function (req, res) {
+
+apiRoutes.route("/user").get(function (req, res) {
   let db_connect = dbo.getDb("LeafTrade");
   db_connect
     .collection("users")
@@ -25,7 +25,7 @@ userRoutes.route("/user").get(function (req, res) {
 });
 
 // This section will help you get a single user by id
-productRoutes.route("/user/:id").get(function (req, res) {
+apiRoutes.route("/user/:id").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   db_connect.collection("users").findOne(myquery, function (err, result) {
@@ -35,7 +35,7 @@ productRoutes.route("/user/:id").get(function (req, res) {
 });
 
 // This section will help you create a new user.
-productRoutes.route("/user/add").post(function (req, response) {
+apiRoutes.route("/user/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
     name: req.body.name,
@@ -48,7 +48,7 @@ productRoutes.route("/user/add").post(function (req, response) {
 });
 
 // This section will help you get a list of all the products.
-productRoutes.route("/product").get(function (req, res) {
+apiRoutes.route("/product").get(function (req, res) {
   let db_connect = dbo.getDb("LeafTrade");
   db_connect
     .collection("products")
@@ -60,7 +60,7 @@ productRoutes.route("/product").get(function (req, res) {
 });
 
 // This section will help you get a single product by id
-productRoutes.route("/product/:id").get(function (req, res) {
+apiRoutes.route("/product/:id").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   db_connect.collection("products").findOne(myquery, function (err, result) {
@@ -70,7 +70,7 @@ productRoutes.route("/product/:id").get(function (req, res) {
 });
 
 // This section will help you create a new product.
-productRoutes.route("/product/add").post(function (req, response) {
+apiRoutes.route("/product/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
     userID: { user_id: ObjectId(req.params.userID), ref: "user" },
@@ -106,7 +106,7 @@ productRoutes.route("/product/add").post(function (req, response) {
 });
 
 // This section will help you update a product by id.
-productRoutes.route("/update/:id").post(function (req, response) {
+apiRoutes.route("/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {
@@ -127,7 +127,7 @@ productRoutes.route("/update/:id").post(function (req, response) {
 });
 
 // This section will help you delete a product
-productRoutes.route("/:id").delete((req, response) => {
+apiRoutes.route("/:id").delete((req, response) => {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   db_connect.collection("products").deleteOne(myquery, function (err, obj) {
@@ -137,4 +137,4 @@ productRoutes.route("/:id").delete((req, response) => {
   });
 });
 
-module.exports = productRoutes;
+module.exports = apiRoutes;
