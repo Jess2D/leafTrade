@@ -134,7 +134,7 @@ const StyledHome = () => {
             </Container>
         </Imagebgmain>
         
-        {/* Air purifying */}
+{/* Air purifying */}
           <Container>
             <Row>
               <Col>
@@ -152,7 +152,7 @@ const StyledHome = () => {
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
                              </Card.Text>
-                                <Button variant="primary">Check it out</Button>
+                             <Card.Link href="#">Check it out</Card.Link>
                       </Card.Body>
                 </Card>
               </Col>
@@ -166,7 +166,7 @@ const StyledHome = () => {
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
                              </Card.Text>
-                                <Button variant="primary">Check it out</Button>
+                             <Card.Link href="#">Check it out</Card.Link>
                       </Card.Body>
                 </Card>
               </Col>
@@ -180,7 +180,7 @@ const StyledHome = () => {
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
                              </Card.Text>
-                                <Button variant="primary">Check it out</Button>
+                             <Card.Link href="#">Check it out</Card.Link>
                       </Card.Body>
                 </Card>
               </Col>
@@ -194,7 +194,7 @@ const StyledHome = () => {
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
                              </Card.Text>
-                                <Button variant="primary">Check it out</Button>
+                             <Card.Link href="#">Check it out</Card.Link>
                       </Card.Body>
                 </Card>
               </Col>
@@ -202,6 +202,12 @@ const StyledHome = () => {
            </Row>
           </Container>
   
+{/* Fresh Herbs */}
+
+{/* Grow your Business */}
+
+{/* Become a Seller */}
+
     
     </div>
   );
