@@ -68,7 +68,7 @@
 // ****************************************
 
 
-
+import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -129,7 +129,7 @@ const StyledHome = () => {
                 </MainTitle>
                   <p className="text-center">Your online shop for buying indoor plants, outdoor plants & kitchen herbs</p>
                 <PrimaryButton>
-                  <p>Shop</p>
+                <Link to="/catalog">Shop</Link>
                 </PrimaryButton>
             </Container>
         </Imagebgmain>
