@@ -69,7 +69,6 @@
 
 
 
-//Wednesday 7 Sep//
 import styled from 'styled-components'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -77,6 +76,10 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import bgheroimage from "../../assets/homeassets/bgheroimage.jpeg"
+import peacelily from "../../assets/homeassets/peacelilysqr.jpeg"
+import snakeplant from "../../assets/homeassets/snakesqr.jpeg"
+import aloevera from "../../assets/homeassets/aloeverasqr.jpeg"
+import rubberplant from "../../assets/homeassets/rubberplantsqr.jpeg"
 
 const Imagebgmain = styled.div`
   background-image: url(${bgheroimage});
@@ -142,56 +145,56 @@ const StyledHome = () => {
             <Row>
               <Col>
               <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={peacelily}/>
                     <Card.Body>
                         <Card.Title>Peace Lily</Card.Title>
                              <Card.Text>
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
                              </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Check it out</Button>
                       </Card.Body>
                 </Card>
               </Col>
 
               <Col>
               <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={snakeplant}/>
                     <Card.Body>
                         <Card.Title>Snake Plant</Card.Title>
                              <Card.Text>
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
                              </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Check it out</Button>
                       </Card.Body>
                 </Card>
               </Col>
 
               <Col>
               <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={aloevera}/>
                     <Card.Body>
                         <Card.Title>Aloe Vera</Card.Title>
                              <Card.Text>
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
                              </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Check it out</Button>
                       </Card.Body>
                 </Card>
               </Col>
 
             <Col>
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
+                    <Card.Img variant="top" src={rubberplant}/>
                     <Card.Body>
                         <Card.Title>Rubber Plant</Card.Title>
                              <Card.Text>
                               Some quick example text to build on the card title and make up the
                               bulk of the card's content.
                              </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Check it out</Button>
                       </Card.Body>
                 </Card>
               </Col>
@@ -205,32 +208,3 @@ const StyledHome = () => {
 }
 
 export default StyledHome;
-
-//Maira Visual results//
-
-// function StyledHome() {
-//     return (
-//       <div>
-//         <p>home component test Maira</p>
-//         {/* <Button/>
-//         <Wrapper>
-//          <Title><h1>Hello World!!!</h1></Title>
-//         </Wrapper> */}
-
-
-//         <Card style={{ width: '18rem' }}>
-//       <Card.Img variant="top" src="holder.js/100px180" />
-//       <Card.Body>
-//         <Card.Title>Card Title</Card.Title>
-//         <Card.Text>
-//           Some quick example text to build on the card title and make up the
-//           bulk of the card's content.
-//         </Card.Text>
-//         <Button variant="primary">Go somewhere</Button>
-//       </Card.Body>
-//     </Card>
-//       </div>
-//     );
-//   }
-  
-//   export default StyledHome;
