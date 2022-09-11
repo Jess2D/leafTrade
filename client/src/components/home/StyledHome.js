@@ -86,6 +86,7 @@ const Imagebgmain = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
+  margin-bottom: 50px;
 `;
 
 const MainTitle = styled.div`
@@ -93,6 +94,23 @@ const MainTitle = styled.div`
   line-height: 70px;   /* within paragraph */
   margin: 30px; /* between paragraphs */
   font-weight: bold;
+  font-family: 'Raleway'
+`;
+
+const PrimaryButton = styled.div`
+position: absolute;
+width: 250px;
+height: 64px;
+left: calc(50% - 250px/2);
+top: 826px;
+background: #0D1321;
+border-radius: 5px;
+font-family: 'Raleway';
+text-align: center;
+font-size: 28px;
+font-weight: bold;
+color: #FFFFFD;
+line-height: 64px;
 `;
 
 const StyledHome = () => {
@@ -106,11 +124,13 @@ const StyledHome = () => {
                     <p>your life</p>
                   </div>
                 </MainTitle>
-                <p className="text-center">Your online shop for buying indoor plants, outdoor plants & kitchen herbs</p>
+                  <p className="text-center">Your online shop for buying indoor plants, outdoor plants & kitchen herbs</p>
+                <PrimaryButton>
+                  <p>Shop</p>
+                </PrimaryButton>
             </Container>
         </Imagebgmain>
-
-
+        
         {/* Air purifying */}
           <Container>
             <Row>
