@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-//import { Container, Card } from "react-bootstrap";
-//import styled from "styled-components";
+import { Container, Card, Dropdown } from "react-bootstrap";
+import styled from "styled-components";
 
 /**
  * @description Represents a Login view Component for the whole app
@@ -9,13 +9,19 @@ import React, { useEffect, useState } from "react";
 /**
  * @description Represents the style of Catalog Page
  */
-/*const Padding32 = styled.div`
+const Box = styled.div`
+  padding: 32px;
+  height: 300px;
+`;
+
+const Padding = styled.div`
   padding: 32px;
 `;
 
-const Padding12 = styled.div`
-  padding: 12px;
+const Bg = styled.div`
+  background: #506053;
 `;
+/*
 const Img = styled.div`
   padding-top: 32px;
   width: 189px;
@@ -38,7 +44,7 @@ const PurpleSection = styled.div`
  * @description Represents a view of a single User of a product from MongoDB database
  */
 
-const User = (props) => <div>{props.user.name}</div>;
+const User = (props) => props.user.name;
 
 /**
  * @description Represents the list of products from MongoDB database
@@ -69,7 +75,11 @@ function UserList() {
   // This method will map out the Users on cards
   function UserList() {
     return users.map((user) => {
-      return <User user={user} key={user._id} />;
+      return (
+        <Dropdown.Item eventKey={user._id}>
+          <User user={user} key={user._id} />
+        </Dropdown.Item>
+      );
     });
   }
 
@@ -84,9 +94,29 @@ function UserList() {
 const Login = () => {
   return (
     <div>
-      <UserList />
+      <Bg>
+        <Container>
+          <Padding>
+            <Card>
+              <Box>
+                <Card.Body>
+                  {" "}
+                  <Dropdown>
+                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                      User {console.log(UserList)}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <UserList />
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Card.Body>
+              </Box>
+            </Card>
+          </Padding>
+        </Container>
+      </Bg>
     </div>
   );
 };
-
+console.log();
 export default Login;
