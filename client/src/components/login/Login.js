@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Card, Dropdown } from "react-bootstrap";
+import { Container, Card, Form, Button } from "react-bootstrap";
 import styled from "styled-components";
 
 /**
@@ -16,10 +16,12 @@ const Box = styled.div`
 
 const Padding = styled.div`
   padding: 32px;
+  width: 400px;
+  margin: 0;
 `;
 
 const Bg = styled.div`
-  background: #506053;
+  background: #fcd6d5;
 `;
 /*
 const Img = styled.div`
@@ -74,46 +76,45 @@ function UserList() {
 
   // This method will map out the Users on cards
   function UserList() {
-    return users.map((user) => {
+    return users.map((user, key) => {
+      key = user._id;
       return (
-        <Dropdown.Item eventKey={user._id}>
-          <User user={user} key={user._id} />
-        </Dropdown.Item>
+        <option value={key}>
+          <User user={user} key={key} />
+        </option>
       );
     });
   }
 
   // This following section will display the cards with the Users of individuals.
-  return (
-    <div className="d-inline-flex align-content-center justify-content-start gap-3 flex-wrap">
-      {UserList()}
-    </div>
-  );
+  return UserList();
 }
 
 const Login = () => {
+  const [selectedUser, setselectedUser] = useState();
   return (
     <div>
-      <Bg>
-        <Container>
-          <Padding>
-            <Card>
-              <Box>
-                <Card.Body>
-                  {" "}
-                  <Dropdown>
-                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                      User {console.log(UserList)}
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <UserList />
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </Card.Body>
-              </Box>
-            </Card>
-          </Padding>
-        </Container>
+      <Bg className="row align-items-center vh-100">
+        <Padding className="col-6 mx-auto">
+          <Card>
+            <Box>
+              <h1 className="text-center">Sign in</h1>
+              <Card.Body className="d-flex flex-column gap-3 justify-content-center">
+                <Form.Select
+                  aria-label="User Login"
+                  value={selectedUser}
+                  onChange={(e) => setselectedUser(e.target.value)}
+                  className=""
+                >
+                  {console.log(selectedUser)}
+                  <option>User </option>
+                  <UserList />{" "}
+                </Form.Select>{" "}
+                <Button variant="outline-success">Login</Button>
+              </Card.Body>
+            </Box>
+          </Card>
+        </Padding>
       </Bg>
     </div>
   );
