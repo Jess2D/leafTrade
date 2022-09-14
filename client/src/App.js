@@ -13,12 +13,17 @@ import Product from "./components/product/ProductView";
 import Footer from "./components/footer/Footer";
 import Catalog from "./components/catalog/Catalog";
 import Login from "./components/login/Login";
+import styled from "styled-components";
 //import Reviews from "./components/review/Reviews";
 //import Questions from "./components/question/Question";
 
+const MainFont = styled.div`
+font-family: raleway,sans-serif;
+`;
+
 const App = () => {
   return (
-    <div>
+    <MainFont>
       <TopBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -34,7 +39,7 @@ const App = () => {
         <PrivateRoute path="/manageListing" element={<MagageListing />} />*/}
       </Routes>
       <Footer />
-    </div>
+    </MainFont>
   );
 };
 
