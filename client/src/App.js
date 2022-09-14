@@ -1,12 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-// We use Route in order to define the different routes of our application
+import styled from "styled-components";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { history } from "./_helpers/history";
-
-// We import all the components we need in our app
 import Home from "./components/home/Home";
 import TopBar from "./components/navbar/Topbar";
 import Product from "./components/product/ProductView";
@@ -15,23 +10,18 @@ import Product from "./components/product/ProductView";
 import Footer from "./components/footer/Footer";
 import Catalog from "./components/catalog/Catalog";
 import Login from "./components/login/Login";
-
 import Reviews from "./components/review/Reviews";
 //import Questions from "./components/question/Question";
 
-/*const PrivateRoute = ({ children, ...rest }) => {
-  let auth = useAuth();
-  return (
-    <Route
-      {...rest}
-      render={() => (auth ? children : <Redirect to="/login" />)}
-    />
-  );
-};*/
+const useAuth = () => {
+  const user = sessionStorage.getItem("user");
+  return user ? true : false;
+};
 
-import styled from "styled-components";
-//import Reviews from "./components/review/Reviews";
-//import Questions from "./components/question/Question";
+function PrivateRoute({ children }) {
+  const auth = useAuth();
+  return auth ? children : <Navigate to="/login" />;
+}
 
 const MainFont = styled.div`
   font-family: raleway, sans-serif;
@@ -46,11 +36,11 @@ const App = () => {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route
-          path="/product/:id/review"
+        <Route
+          path="/private"
           element={
             <PrivateRoute>
-              <Reviews />
+              <Catalog />
             </PrivateRoute>
           }
         />
