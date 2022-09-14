@@ -48,11 +48,13 @@ const TopBar = () => {
               </Nav>
             </Navbar.Collapse>
             <Padding>
-              <Button variant="outline-light">Sell</Button>
+              <Button href="/login" variant="outline-light">
+                Sell
+              </Button>
             </Padding>
             <Padding>
-              <Button variant="outline-light">
-                <Link to="/catalog">Shop</Link>
+              <Button href="/catalog" variant="outline-light">
+                Shop
               </Button>
             </Padding>
           </Container>
