@@ -22,7 +22,7 @@ const TopBar = () => {
       <Background>
         <Navbar expand="lg">
           <Container fluid>
-            <Navbar.Brand href="#">
+            <Navbar.Brand href="/">
               {" "}
               <img src={logo} alt="Logo" width={"89px"} />
             </Navbar.Brand>
