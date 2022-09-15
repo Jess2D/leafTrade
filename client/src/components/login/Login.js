@@ -2,13 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import styled from "styled-components";
 
-/**
- * @description Represents a Login view Component for the whole app
- */
-
-/**
- * @description Represents the style of Catalog Page
- */
 const Box = styled.div`
   padding: 32px;
   height: 300px;
@@ -20,36 +13,22 @@ const Padding = styled.div`
   margin: 0;
 `;
 
+const Section = styled.div`
+  margin-top: 12px;
+`;
+
 const Bg = styled.div`
   background: #fcd6d5;
 `;
-/*
-const Img = styled.div`
-  padding-top: 32px;
-  width: 189px;
-`;
-const CardSize = styled.div`
-  width: 220px;
-`;
-const PurpleSection = styled.div`
-  background: rgb(242, 242, 242);
-  background: linear-gradient(
-    90deg,
-    rgba(242, 242, 242, 1) 0%,
-    rgba(206, 205, 208, 1) 0%,
-    rgba(164, 123, 220, 1) 43%,
-    rgba(250, 255, 245, 1) 100%
-  );
-`;*/
 
 /**
- * @description Represents a view of a single User of a product from MongoDB database
+ * @description Represents a single user
  */
 
 const User = (props) => props.user.name;
 
 /**
- * @description Represents the list of products from MongoDB database
+ * @description Represents the list of users from MongoDB database
  */
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -74,7 +53,7 @@ function UserList() {
     return;
   }, [users.length]);
 
-  // This method will map out the Users on cards
+  // This method will map out the Users
   function UserList() {
     return users.map((user, key) => {
       key = user._id;
@@ -86,9 +65,12 @@ function UserList() {
     });
   }
 
-  // This following section will display the cards with the Users of individuals.
   return UserList();
 }
+
+/**
+ * @description Represents a Login view Component for the whole app
+ */
 
 const Login = () => {
   const [selectedUser, setselectedUser] = useState();
@@ -100,17 +82,27 @@ const Login = () => {
             <Box>
               <h1 className="text-center">Sign in</h1>
               <Card.Body className="d-flex flex-column gap-3 justify-content-center">
-                <Form.Select
-                  aria-label="User Login"
-                  value={selectedUser}
-                  onChange={(e) => setselectedUser(e.target.value)}
-                  className=""
-                >
-                  {console.log(selectedUser)}
-                  <option>User </option>
-                  <UserList />{" "}
-                </Form.Select>{" "}
-                <Button variant="outline-success">Login</Button>
+                <Form validated>
+                  <Form.Select
+                    aria-label="User Login"
+                    value={selectedUser}
+                    onChange={(e) => setselectedUser(e.target.value)}
+                    required
+                  >
+                    {console.log(selectedUser)}
+                    <option></option>
+                    <UserList />{" "}
+                  </Form.Select>{" "}
+                  <Section className="d-grid gap-2">
+                    <Button
+                      onClick={sessionStorage.setItem("user", selectedUser)}
+                      variant="outline-success"
+                      type="button"
+                    >
+                      Login
+                    </Button>
+                  </Section>
+                </Form>
               </Card.Body>
             </Box>
           </Card>

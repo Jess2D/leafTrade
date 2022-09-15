@@ -1,10 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-// We use Route in order to define the different routes of our application
-import { Route, PrivateRoute, Routes } from "react-router-dom";
-
-// We import all the components we need in our app
+import styled from "styled-components";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./components/home/Home";
 import TopBar from "./components/navbar/Topbar";
 import Product from "./components/product/ProductView";
@@ -13,12 +10,21 @@ import Product from "./components/product/ProductView";
 import Footer from "./components/footer/Footer";
 import Catalog from "./components/catalog/Catalog";
 import Login from "./components/login/Login";
-import styled from "styled-components";
-//import Reviews from "./components/review/Reviews";
+import Reviews from "./components/review/Reviews";
 //import Questions from "./components/question/Question";
 
+const useAuth = () => {
+  const user = sessionStorage.getItem("user");
+  return user ? true : false;
+};
+
+function PrivateRoute({ children }) {
+  const auth = useAuth();
+  return auth ? children : <Navigate to="/login" />;
+}
+
 const MainFont = styled.div`
-font-family: raleway,sans-serif;
+  font-family: raleway, sans-serif;
 `;
 
 const App = () => {
@@ -30,6 +36,14 @@ const App = () => {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/login" element={<Login />} />
+        <Route
+          path="/private"
+          element={
+            <PrivateRoute>
+              <Catalog />
+            </PrivateRoute>
+          }
+        />
         {/*<PrivateRoute path="/product/:id/review" element={<Reviews />} />
         <PrivateRoute
           path="/product/:id/question/:id"
