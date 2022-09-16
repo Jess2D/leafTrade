@@ -8,6 +8,8 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import peacelily from "../../assets/homeassets/peacelilysqr.jpeg";
 import Nav from 'react-bootstrap/Nav';
+import Stack from 'react-bootstrap/Stack';
+
 
 const ProductTitle = styled.div`
 font-size: 64px;
@@ -97,68 +99,72 @@ const ProductView = () => {
           </Col>
 
           <Col>
-                <Card.Title>
-                  <ProductTitle>Peace Lily</ProductTitle>
-                  <ProductPrice>NZD 20,00</ProductPrice>
-                </Card.Title>
+            <Card.Title>
+              <ProductTitle>Peace Lily</ProductTitle>
+              <ProductPrice>NZD 20,00</ProductPrice>
+            </Card.Title>
 
-                <Card.Text>
-                  <ProductDescription>
-                    <p>
-                      The name “peace lily” came about because the white flowers look like white flags of peace—though
-                      they aren't actually lilies. Instead, they're tropical perennials, meaning when you practice good peace lily care,
-                      these plants can live for years
-                    </p>
-                    <ul>
-                      <li>Place plants in bright, indirect light</li>
-                      <li>Keep the soil consistently moist but not soggy</li>
-                      <li>Grow 1 to 4 feet tall</li>
-                    </ul>
-                  </ProductDescription>
-                </Card.Text>
+            <Card.Text>
+              <ProductDescription>
+                <p>
+                  The name “peace lily” came about because the white flowers look like white flags of peace—though
+                  they aren't actually lilies. Instead, they're tropical perennials, meaning when you practice good peace lily care,
+                  these plants can live for years
+                </p>
+                <ul>
+                  <li>Place plants in bright, indirect light</li>
+                  <li>Keep the soil consistently moist but not soggy</li>
+                  <li>Grow 1 to 4 feet tall</li>
+                </ul>
+              </ProductDescription>
+            </Card.Text>
 
-                <Row>
-                  <Col>
-                    <InputPlaceholder>
-                      <InputDelete>-</InputDelete>
-                      <InputNumber>1</InputNumber>
-                      <InputAdd>+</InputAdd>
-                    </InputPlaceholder>
-                  </Col>
-                  <Col>
-                    <CartButton>
-                      <p>Add to cart</p>
-                    </CartButton>
-                  </Col>
-                  <Col>
-                    <Button variant="w-100 btn btn-lg btn-outline-danger">
-                      <span variant="text-center">
-                        &nbsp;
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 30 30">
-                          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
-                        </svg>
-                      </span>
-                    </Button>{' '}
-                  </Col>
-                  <p></p>
-                </Row>
+            <Row>
+              <Stack direction="horizontal" gap={3}>
+                <div>
+                  <InputPlaceholder>
+                    <InputDelete>-</InputDelete>
+                    <InputNumber>1</InputNumber>
+                    <InputAdd>+</InputAdd>
+                  </InputPlaceholder>
+                </div>
+                <div>
+                  <CartButton>
+                    <p>Add to cart</p>
+                  </CartButton>
+                </div>
+                <div>
+                  <Button variant="align-middle text-center btn-lg btn-outline-danger">
+                    &nbsp;
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="30" fill="currentColor" class="text-center bi bi-heart-fill align-middle" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
+                    </svg>
+                  </Button>{' '}
+                </div>
+              </Stack>
+            </Row>
           </Col>
         </Row>
       </Container>
+
       <Container>
-        <Nav variant="tabs" defaultActiveKey="/home">
-            <Nav.Item>
-              <Nav.Link href="/home">Reviews</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="link-1">Questions&Answers</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="disabled" disabled>
-                Shipping & pick-up options
-              </Nav.Link>
-            </Nav.Item>
-        </Nav>
+        <Row>
+          <Col>
+            <Nav justify variant="tabs" defaultActiveKey="/home">
+              <Nav.Item>
+                <Nav.Link eventKey="link-1">Reviews</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="link-2">Questions&Answers</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="disabled" disabled>
+                  Shipping & pick-up options
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
