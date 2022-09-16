@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Button, Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
 
 const Background = styled.div`
   background: #506053;

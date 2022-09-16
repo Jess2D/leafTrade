@@ -11,7 +11,8 @@ import Footer from "./components/footer/Footer";
 import Catalog from "./components/catalog/Catalog";
 import Login from "./components/login/Login";
 import Reviews from "./components/review/Reviews";
-//import Questions from "./components/question/Question";
+import FooterProductPage from "./components/productNavigation/ProductFooter";
+//import FooterProductPage from "./components/productNavigation/FooterProductPage";
 
 const useAuth = () => {
   const user = sessionStorage.getItem("user");
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/prodNav" element={<FooterProductPage />} />
         <Route
           path="/private"
           element={
