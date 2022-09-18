@@ -146,26 +146,6 @@ const ProductView = () => {
           </Col>
         </Row>
       </Container>
-
-      <Container>
-        <Row>
-          <Col>
-            <Nav justify variant="tabs" defaultActiveKey="/home">
-              <Nav.Item>
-                <Nav.Link eventKey="link-1">Reviews</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="link-2">Questions&Answers</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="disabled" disabled>
-                  Shipping & pick-up options
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Col>
-        </Row>
-      </Container>
     </div>
   );
 }
