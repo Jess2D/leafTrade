@@ -24,7 +24,7 @@ export default function Product(product_id) {
     reviews: [
       {
         rate: "",
-        ruserID: "",
+        ruserID: { ruser_id: "" },
         review: "",
       },
     ],
