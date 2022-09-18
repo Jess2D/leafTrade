@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Form, Button } from "react-bootstrap";
 import plantbasket from "../../assets/newlisting/plantbasket.png";
 
 const Padding32 = styled.div`
@@ -92,7 +92,7 @@ export default function NewListing() {
       
       <div>
         <Padding32>
-          <h3>CreateUser New product</h3>
+          <h3>New product</h3>
           <form onSubmit={onSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
@@ -114,7 +114,6 @@ export default function NewListing() {
                 onChange={(e) => updateForm({ photo: e.target.value })}
               />
             </div>
-
             <div className="form-group">
               <input
                 type="submit"
@@ -124,6 +123,43 @@ export default function NewListing() {
             </div>
           </form>
         </Padding32>
+
+        <div>
+          <Form>
+            <Form.Group controlId="formPhotos" className="mb-3">
+              <Form.Label>Add photos: 0/5</Form.Label>
+              <Form.Control type="file" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formCategory">
+              <Form.Label>Category</Form.Label>
+              <Form.Select>
+                <option>Choose one</option>
+                <option>Indoor plants</option>
+                <option>Outdoor plants</option>
+                <option>Kitchen Garden</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formTitle">
+              <Form.Label>Title</Form.Label>
+              <Form.Control type="title" placeholder="Write a title that will spark interest" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formPrice">
+              <Form.Label>Price</Form.Label>
+              <Form.Control type="title" placeholder="How much does it cost?" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formQuantity">
+              <Form.Label>Quantity</Form.Label>
+              <Form.Control type="title" placeholder="Single Item or In Stock" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formDescription">
+              <Form.Label>Description</Form.Label>
+              <Form.Control as="textarea" rows={3} placeholder="Keep it simple, using clear, descriptive words and aiming for positive connotations" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              PUBLISH
+            </Button>
+          </Form>
+        </div>
       </div>
     </div>
   );
