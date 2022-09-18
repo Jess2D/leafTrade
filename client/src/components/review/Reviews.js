@@ -11,6 +11,7 @@ const StarsOuter = styled.div`
 `;
 const Box = styled.div`
   margin: 32px;
+  font-style: italic;
 `;
 
 const StarsInner = styled.div`
@@ -27,9 +28,9 @@ const Review = (props) => (
   <div>
     <Container>
       <Box>
-        {props.review.rate}
-        {props.review.review}
-        {getUser(props.id)}
+        <div>{props.review.rate}</div>
+        <div>{props.review.review}</div>
+        <div>{getUser(props.id)}</div>
       </Box>
     </Container>
   </div>
