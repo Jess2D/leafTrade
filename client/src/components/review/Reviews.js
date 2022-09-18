@@ -4,6 +4,8 @@ import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import Product from "../product/Product";
 import User from "../user/User";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faStar } from "@fortawesome/free-solid-svg-icons";
 
 const StarsOuter = styled.div`
   padding: 32px;
@@ -24,11 +26,57 @@ const getUser = (id) => {
   return user.name;
 };
 
+const getRating = (quant) => {
+  let number = quant;
+  console.log(number);
+  if ((number = 5)) {
+    return (
+      <div>
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+      </div>
+    );
+  } else if ((number = 4)) {
+    return (
+      <div>
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+      </div>
+    );
+  } else if ((number = 3)) {
+    return (
+      <div>
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+      </div>
+    );
+  } else if ((number = 2)) {
+    return (
+      <div>
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+      </div>
+    );
+  } else if ((number = 1)) {
+    return (
+      <div>
+        <FontAwesomeIcon icon={faStar} />
+      </div>
+    );
+  } else return <div></div>;
+};
+
 const Review = (props) => (
   <div>
     <Container>
       <Box>
-        <div>{props.review.rate}</div>
+        <div>{getRating(props.review.rate)}</div>
         <div>{props.review.review}</div>
         <div>{getUser(props.id)}</div>
       </Box>
@@ -40,7 +88,6 @@ export default function Reviews() {
   const params = useParams();
   const id = params.id.toString();
   const product = Product(id);
-  const userProductID = product.userID.user_id;
 
   const ReviewList = () => {
     return product.reviews.map((review, key) => {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Card } from "react-bootstrap";
 import styled from "styled-components";
 import catalogMKT from "../../assets/catalogMKT.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 /**
  * @description Represents the style of Catalog Page
