@@ -6,19 +6,11 @@ import Product from "../product/Product";
 import User from "../user/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Button from "react-bootstrap/Button";
 
-const StarsOuter = styled.div`
-  padding: 32px;
-  height: 300px;
-`;
 const Box = styled.div`
   margin: 32px;
   font-style: italic;
-`;
-
-const StarsInner = styled.div`
-  padding: 32px;
-  height: 300px;
 `;
 
 const getUser = (id) => {
@@ -88,6 +80,7 @@ export default function Reviews() {
   const params = useParams();
   const id = params.id.toString();
   const product = Product(id);
+  const url = "/product/" + product._id + "/review/add";
   const ReviewList = () => {
     return product.reviews.map((review, key) => {
       return <Review review={review} id={review.ruserID.ruser_id} key={key} />;
@@ -96,7 +89,14 @@ export default function Reviews() {
 
   return (
     <div>
-      <Container>{ReviewList()}</Container>
+      <Container>
+        {ReviewList()}
+        <Box>
+          <Button variant="dark" href={url}>
+            Review this product
+          </Button>
+        </Box>
+      </Container>
     </div>
   );
 }

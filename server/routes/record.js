@@ -84,6 +84,7 @@ apiRoutes.route("/product/add").post(function (req, response) {
       {
         title: req.body.title,
         quserID: { quser_id: ObjectId(req.params.quserID), ref: "user" },
+        answer: req.body.answer,
         answers: [
           {
             answer: req.body.answer,

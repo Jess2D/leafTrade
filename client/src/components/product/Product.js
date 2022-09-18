@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 
 export default function Product(product_id) {
   const [item, setitem] = useState({
+    _id: "",
     name: "",
     userID: { user_id: "" },
     description: "",
@@ -13,7 +14,8 @@ export default function Product(product_id) {
     questions: [
       {
         title: "",
-        quserID: "",
+        quserID: { quser_id: "" },
+        answer: "",
         answers: [
           {
             answer: "",
