@@ -11,6 +11,7 @@ import Footer from "./components/footer/Footer";
 import Catalog from "./components/catalog/Catalog";
 import Login from "./components/login/Login";
 import Reviews from "./components/review/Reviews";
+import Questions from "./components/question/Questions";
 import FooterProductPage from "./components/productNavigation/ProductFooter";
 //import FooterProductPage from "./components/productNavigation/FooterProductPage";
 
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/prodNav/:id" element={<FooterProductPage />} />
         <Route path="/reviews/:id" element={<Reviews />} />
+        <Route path="/questions/:id" element={<Questions />} />
         <Route path="/newListing" element={<NewListing />} />
         <Route
           path="/private"
