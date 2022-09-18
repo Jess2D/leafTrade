@@ -5,13 +5,14 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./components/home/Home";
 import TopBar from "./components/navbar/Topbar";
 import Product from "./components/product/ProductView";
-//import NewListing from "./components/listing/NewListing";
+import NewListing from "./components/listing/NewListing";
 //import MagageListing from "./components/listing/ManageListing";
 import Footer from "./components/footer/Footer";
 import Catalog from "./components/catalog/Catalog";
 import Login from "./components/login/Login";
 import Reviews from "./components/review/Reviews";
-//import Questions from "./components/question/Question";
+import FooterProductPage from "./components/productNavigation/ProductFooter";
+//import FooterProductPage from "./components/productNavigation/FooterProductPage";
 
 const useAuth = () => {
   const user = sessionStorage.getItem("user");
@@ -36,6 +37,8 @@ const App = () => {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/prodNav" element={<FooterProductPage />} />
+        <Route path="/newListing" element={<NewListing />} />
         <Route
           path="/private"
           element={
@@ -49,8 +52,7 @@ const App = () => {
           path="/product/:id/question/:id"
           element={<Questions />}
         />
-        <PrivateRoute path="/newListing" element={<NewListing />} />
-        <PrivateRoute path="/manageListing" element={<MagageListing />} />*/}
+        <PrivateRoute path="/newListing" element={<NewListing />} />*/}
       </Routes>
       <Footer />
     </MainFont>
