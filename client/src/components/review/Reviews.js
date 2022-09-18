@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Product from "../product/Product";
 import User from "../user/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const StarsOuter = styled.div`
   padding: 32px;
@@ -88,7 +88,6 @@ export default function Reviews() {
   const params = useParams();
   const id = params.id.toString();
   const product = Product(id);
-
   const ReviewList = () => {
     return product.reviews.map((review, key) => {
       return <Review review={review} id={review.ruserID.ruser_id} key={key} />;
