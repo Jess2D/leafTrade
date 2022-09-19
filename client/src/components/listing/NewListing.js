@@ -99,10 +99,14 @@ export default function NewListing() {
         <Padding32>
           <div class="d-flex justify-content-center">
             <Form onSubmit={onSubmit}>
-              <Form.Group controlId="formPhotos" className="mb-3">
+              {/* <Form.Group controlId="formPhotos" className="mb-3">
                 <Form.Label className="fw-bold">Add photos: 0/5</Form.Label>
                 <Form.Control id="img" value={form.img} onChange={(e) => updateForm({ img: e.target.value })}
-                  type="file" />
+                  type="file" /> */}
+                <Form.Group className="mb-3" controlId="formPhotos">
+                  <Form.Label className="fw-bold">Add photo</Form.Label>
+                  <Form.Control id="name" value={form.img} onChange={(e) => updateForm({ img: e.target.value })}
+                    type="text" placeholder="Paste your URL here" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formCategory">
                 <Form.Label className="fw-bold">Category</Form.Label>
