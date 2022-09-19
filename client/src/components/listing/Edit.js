@@ -1,16 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import styled from "styled-components";
+import { Button, Container, Form } from "react-bootstrap";
 import monstera from "../../assets/monstera.png";
 
 const Top = styled.div`
   padding: 32px;
-  background:  #FCD6D5;
   height; 200px;
+`;
+
+const Header = styled.div`
+  font-size: 50px;
+  font-weight: bold;
 `;
 
 const MainContent = styled.div`
   padding: 32px;
+`;
+
+const FormSize = styled.div`
+  width: 500px;
+`;
+
+const BgSection = styled.div`
+  background: #fcd6d5;
+  background: linear-gradient(
+    90deg,
+    rgba(252, 237, 236, 1) 0%,
+    rgba(245, 221, 217, 1) 0%,
+    rgba(248, 227, 224, 1) 43%,
+    rgba(244, 215, 212, 1) 100%
+  );
 `;
 
 export default function Edit() {
@@ -19,6 +39,7 @@ export default function Edit() {
     description: "",
     img: "",
     price: "",
+    category: "",
     products: [],
   });
   const params = useParams();
@@ -61,17 +82,18 @@ export default function Edit() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const editedPerson = {
+    const editedProduct = {
       name: form.name,
       description: form.description,
       img: form.img,
       price: form.price,
+      category: form.category,
     };
 
     // This will send a post request to update the data in the database.
     await fetch(`http://localhost:5000/update/${params.id}`, {
       method: "POST",
-      body: JSON.stringify(editedPerson),
+      body: JSON.stringify(editedProduct),
       headers: {
         "Content-Type": "application/json",
       },
@@ -83,65 +105,90 @@ export default function Edit() {
   // This following section will display the form that takes input from the user to update the data.
   return (
     <div>
-      <Top className="d-flex flex-row justify-content-between">
-        <div>
-          <h2>Edit Listings</h2>
-          <p>Update your own listings</p>
-        </div>
-        <img src={monstera} alt="monstera" width={"200px"} />
-      </Top>
+      <BgSection>
+        <Top className="d-flex flex-row justify-content-between flex-wrap">
+          <div>
+            <Header>Edit Listings</Header>
+            <p>Update your own listings</p>
+          </div>
+          <img src={monstera} alt="monstera" width={"300px"} />
+        </Top>
+      </BgSection>
       <MainContent>
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name: </label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              value={form.name}
-              onChange={(e) => updateForm({ name: e.target.value })}
-            />
+        <Container>
+          <div class="d-flex justify-content-center flex-wrap">
+            <FormSize>
+              <Form onSubmit={onSubmit}>
+                <Form.Group className="mb-3" controlId="formPhotos">
+                  <Form.Label className="fw-bold">Add photo</Form.Label>
+                  <Form.Control
+                    id="name"
+                    value={form.img}
+                    onChange={(e) => updateForm({ img: e.target.value })}
+                    type="text"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formCategory">
+                  <Form.Label className="fw-bold">Category</Form.Label>
+                  <Form.Select
+                    id="category"
+                    value={form.category}
+                    onChange={(e) => updateForm({ category: e.target.value })}
+                  >
+                    <option>Indoor Plants</option>
+                    <option>Outdoor Plants</option>
+                    <option>Kitchen Garden</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-4" controlId="formName">
+                  <Form.Label className="fw-bold">Title</Form.Label>
+                  <Form.Control
+                    id="name"
+                    value={form.name}
+                    onChange={(e) => updateForm({ name: e.target.value })}
+                    type="text"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formPrice">
+                  <Form.Label className="fw-bold">Price</Form.Label>
+                  <Form.Control
+                    id="price"
+                    value={form.price}
+                    onChange={(e) => updateForm({ price: e.target.value })}
+                    type="text"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formQuantity">
+                  <Form.Label className="fw-bold">Quantity</Form.Label>
+                  <Form.Control
+                    id="quantity"
+                    value={form.quantity}
+                    onChange={(e) => updateForm({ quantity: e.target.value })}
+                    type="text"
+                    placeholder="How many do you have available?"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formDescription">
+                  <Form.Label className="fw-bold">Description</Form.Label>
+                  <Form.Control
+                    id="description"
+                    value={form.description}
+                    onChange={(e) =>
+                      updateForm({ description: e.target.value })
+                    }
+                    as="textarea"
+                    rows={3}
+                  />
+                </Form.Group>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <Button className="fw-bold" variant="dark" type="submit">
+                    UPDATE
+                  </Button>
+                </div>
+              </Form>
+            </FormSize>
           </div>
-
-          <div className="form-group">
-            <label htmlFor="description">Description: </label>
-            <input
-              type="text"
-              className="form-control"
-              id="description"
-              value={form.description}
-              onChange={(e) => updateForm({ description: e.target.value })}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="img">Url Img: </label>
-            <input
-              type="text"
-              className="form-control"
-              id="img"
-              value={form.img}
-              onChange={(e) => updateForm({ img: e.target.value })}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="Price">Price: </label>
-            <input
-              type="text"
-              className="form-control"
-              id="price"
-              value={form.price}
-              onChange={(e) => updateForm({ price: e.target.value })}
-            />
-          </div>
-
-          <div className="form-group">
-            <input
-              type="submit"
-              value="Update product"
-              className="btn btn-primary"
-            />
-          </div>
-        </form>
+        </Container>
       </MainContent>
     </div>
   );
