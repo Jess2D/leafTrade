@@ -13,7 +13,8 @@ import Login from "./components/login/Login";
 import Reviews from "./components/review/Reviews";
 import Questions from "./components/question/Questions";
 import FooterProductPage from "./components/productNavigation/ProductFooter";
-//import FooterProductPage from "./components/productNavigation/FooterProductPage";
+import MagageListing from "./components/listing/ManageListing";
+import Edit from "./components/listing/Edit";
 
 const useAuth = () => {
   const user = sessionStorage.getItem("user");
@@ -40,8 +41,10 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/prodNav/:id" element={<FooterProductPage />} />
         <Route path="/reviews/:id" element={<Reviews />} />
+        <Route path="/edit/:id" element={<Edit />} />
         <Route path="/questions/:id" element={<Questions />} />
         <Route path="/newListing" element={<NewListing />} />
+        <Route path="/manageListing" element={<MagageListing />} />
         <Route
           path="/private"
           element={
