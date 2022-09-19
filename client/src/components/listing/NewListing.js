@@ -124,7 +124,7 @@ export default function NewListing() {
           </form>
         </Padding32>
 
-        <div>
+        <div class="d-flex justify-content-center">
           <Form>
             <Form.Group controlId="formPhotos" className="mb-3">
               <Form.Label>Add photos: 0/5</Form.Label>
@@ -149,13 +149,13 @@ export default function NewListing() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formQuantity">
               <Form.Label>Quantity</Form.Label>
-              <Form.Control type="title" placeholder="Single Item or In Stock" />
+              <Form.Control type="title" placeholder="How many do you have?" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formDescription">
               <Form.Label>Description</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Keep it simple, using clear, descriptive words and aiming for positive connotations" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="dark" type="submit">
               PUBLISH
             </Button>
           </Form>
