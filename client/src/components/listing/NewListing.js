@@ -30,9 +30,14 @@ const MainTitle = styled.div`
 
 export default function NewListing() {
   const [form, setForm] = useState({
+    img: "",
     name: "",
     description: "",
+    quantity: "",
+    category: "",
+    price: "",
   });
+
   const navigate = useNavigate();
   // These methods will update the state properties.
   function updateForm(value) {
@@ -59,7 +64,7 @@ export default function NewListing() {
       return;
     });
 
-    setForm({ name: "", photo: "" });
+    setForm({ name: "", img: "", description: "", quantity: "", category: "", price: "",});
     navigate("/");
   }
 
@@ -89,81 +94,55 @@ export default function NewListing() {
           </Container>
         </PurpleSection>
       </div>
-      
+
       <div>
         <Padding32>
-          <h3>New product</h3>
-          <form onSubmit={onSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                value={form.name}
-                onChange={(e) => updateForm({ name: e.target.value })}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="photo">Name</label>
-              <input
-                type="text"
-                className="form-control"
-                id="photo"
-                value={form.photo}
-                onChange={(e) => updateForm({ photo: e.target.value })}
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="submit"
-                value="CreateUser person"
-                className="btn btn-primary"
-              />
-            </div>
-          </form>
+          <div class="d-flex justify-content-center">
+            <Form onSubmit={onSubmit}>
+              <Form.Group controlId="formPhotos" className="mb-3">
+                <Form.Label className="fw-bold">Add photos: 0/5</Form.Label>
+                <Form.Control id="img" value={form.img} onChange={(e) => updateForm({ img: e.target.value })}
+                  type="file" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formCategory">
+                <Form.Label className="fw-bold">Category</Form.Label>
+                <Form.Select id="category" value={form.category} onChange={(e) => updateForm({ category: e.target.value })}>
+                  <option>Choose one</option>
+                  <option>Indoor Plants</option>
+                  <option>Outdoor Plants</option>
+                  <option>Kitchen Garden</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formName">
+                <Form.Label className="fw-bold">Title</Form.Label>
+                <Form.Control id="name" value={form.name} onChange={(e) => updateForm({ name: e.target.value })}
+                  type="text" placeholder="Write a title that will spark interest" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formPrice">
+                <Form.Label className="fw-bold">Price</Form.Label>
+                <Form.Control id="price" value={form.price} onChange={(e) => updateForm({ price: e.target.value })}
+                  type="text" placeholder="How much does it cost?" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formQuantity">
+                <Form.Label className="fw-bold">Quantity</Form.Label>
+                <Form.Control id="quantity" value={form.quantity} onChange={(e) => updateForm({ quantity: e.target.value })}
+                  type="text" placeholder="How many do you have available?" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formDescription">
+                <Form.Label className="fw-bold">Description</Form.Label>
+                <Form.Control id="description" value={form.description} onChange={(e) => updateForm({ description: e.target.value })}
+                  as="textarea" rows={3} placeholder="Keep it simple, using clear, descriptive words and aiming for positive connotations" />
+              </Form.Group>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <Button className="fw-bold" variant="dark" type="submit">
+                  PUBLISH
+                </Button>
+              </div>
+            </Form>
+          </div>
+          <Padding12>
+          </Padding12>
         </Padding32>
-
-        <div class="d-flex justify-content-center">
-          <Form>
-            <Form.Group controlId="formPhotos" className="mb-3">
-              <Form.Label>Add photos: 0/5</Form.Label>
-              <Form.Control type="file" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formCategory">
-              <Form.Label>Category</Form.Label>
-              <Form.Select>
-                <option>Choose one</option>
-                <option>Indoor plants</option>
-                <option>Outdoor plants</option>
-                <option>Kitchen Garden</option>
-              </Form.Select>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formTitle">
-              <Form.Label>Title</Form.Label>
-              <Form.Control type="title" placeholder="Write a title that will spark interest" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formPrice">
-              <Form.Label>Price</Form.Label>
-              <Form.Control type="title" placeholder="How much does it cost?" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formQuantity">
-              <Form.Label>Quantity</Form.Label>
-              <Form.Control type="title" placeholder="How many do you have?" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formDescription">
-              <Form.Label>Description</Form.Label>
-              <Form.Control as="textarea" rows={3} placeholder="Keep it simple, using clear, descriptive words and aiming for positive connotations" />
-            </Form.Group>
-            <div class="d-grid gap-2 col-6 mx-auto">
-              <Button variant="dark" type="submit">
-                PUBLISH
-              </Button>
-            </div>
-          </Form>
-        </div>
-        <Padding12>
-        </Padding12>
       </div>
     </div>
   );
