@@ -155,11 +155,15 @@ export default function NewListing() {
               <Form.Label>Description</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Keep it simple, using clear, descriptive words and aiming for positive connotations" />
             </Form.Group>
-            <Button variant="dark" type="submit">
-              PUBLISH
-            </Button>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <Button variant="dark" type="submit">
+                PUBLISH
+              </Button>
+            </div>
           </Form>
         </div>
+        <Padding12>
+        </Padding12>
       </div>
     </div>
   );
