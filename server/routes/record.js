@@ -116,6 +116,7 @@ apiRoutes.route("/update/:id").post(function (req, response) {
       description: req.body.description,
       img: req.body.img,
       price: req.body.price,
+      category: req.body.category,
     },
   };
   db_connect

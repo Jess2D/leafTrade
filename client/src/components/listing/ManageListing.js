@@ -2,15 +2,30 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
+import coin from "../../assets/listing/editcoin.png";
 
 const Top = styled.div`
-  padding: 32px;
-  background:  #FCEAD5;
-  height; 200px;
+padding: 32px;
+height; 200px;
 `;
 
+const Header = styled.div`
+  font-size: 50px;
+  font-weight: bold;
+`;
 const MainContent = styled.div`
   padding: 32px;
+`;
+
+const BgSection = styled.div`
+  background-image: linear-gradient(
+    to right top,
+    #fcd6d5,
+    #f7dbd0,
+    #efe0d1,
+    #e8e4d7,
+    #e4e7de
+  );
 `;
 
 const Record = (props) => (
@@ -88,15 +103,16 @@ export default function MagageListing() {
   // This following section will display the table with the records of individuals.
   return (
     <div>
-      <Top>
-        <Container>
-          <h3> Manage Listings </h3>
-          <p>
+      <BgSection>
+        <Top className="d-flex flex-row justify-content-between flex-wrap">
+          <div>
+            <Header>Manage Listings</Header>
             Create an item, view a list, view item details, update or edit the
             item and delete an item.
-          </p>
-        </Container>
-      </Top>
+          </div>
+          <img src={coin} alt="Tools" width={"300px"} />
+        </Top>
+      </BgSection>
       <MainContent>
         <Container>
           <table className="table table-striped" style={{ marginTop: 20 }}>
