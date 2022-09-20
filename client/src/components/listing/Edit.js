@@ -23,6 +23,7 @@ const FormSize = styled.div`
 `;
 
 const MainTitle = styled.div`
+  margin-top: 30px;
   font-size: 50px;
   font-weight: bold;
   `;
