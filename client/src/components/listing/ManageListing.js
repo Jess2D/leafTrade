@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
+import toolsmanage from "../../assets/listing/toolsmanage.png";
 
 const Top = styled.div`
   padding: 32px;
@@ -11,6 +12,26 @@ const Top = styled.div`
 
 const MainContent = styled.div`
   padding: 32px;
+`;
+
+const MainTitle = styled.div`
+  font-size: 50px;
+  font-weight: bold;
+`;
+
+const Padding12 = styled.div`
+  padding: 12px;
+`;
+
+const PurpleSection = styled.div`
+  background: rgb(262, 242, 242);
+  background: linear-gradient(
+    90deg,
+    rgba(252, 237, 236, 1) 0%,
+    rgba(245, 221, 217, 1) 0%,
+    rgba(248, 227, 224, 1) 43%,
+    rgba(274, 215, 212, 1) 100%
+  );
 `;
 
 const Record = (props) => (
