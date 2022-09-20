@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
-import coin from "../../assets/listing/editcoin.png";
+import tools from "../../assets/listing/tools.png";
 
 const Top = styled.div`
 padding: 32px;
@@ -110,7 +110,7 @@ export default function MagageListing() {
             Create an item, view a list, view item details, update or edit the
             item and delete an item.
           </div>
-          <img src={coin} alt="Tools" width={"300px"} />
+          <img src={tools} alt="Tools" width={"300px"} />
         </Top>
       </BgSection>
       <MainContent>
