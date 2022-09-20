@@ -98,8 +98,9 @@ export default function Edit() {
         "Content-Type": "application/json",
       },
     });
+    const url = "/product/" + params.id;
 
-    navigate("/");
+    navigate(url);
   }
 
   // This following section will display the form that takes input from the user to update the data.
@@ -109,18 +110,18 @@ export default function Edit() {
         <Top className="d-flex flex-row justify-content-between flex-wrap">
           <div>
             <Header>Edit Listings</Header>
-            <p>Update your own listings</p>
+            Update your own listings
           </div>
           <img src={monstera} alt="monstera" width={"300px"} />
         </Top>
       </BgSection>
       <MainContent>
         <Container>
-          <div class="d-flex justify-content-center flex-wrap">
+          <div className="d-flex justify-content-center flex-wrap">
             <FormSize>
               <Form onSubmit={onSubmit}>
-                <Form.Group className="mb-3" controlId="formPhotos">
-                  <Form.Label className="fw-bold">Add photo</Form.Label>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">Product URL photo</Form.Label>
                   <Form.Control
                     id="name"
                     value={form.img}
@@ -128,20 +129,22 @@ export default function Edit() {
                     type="text"
                   />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formCategory">
+
+                <Form.Group>
                   <Form.Label className="fw-bold">Category</Form.Label>
-                  <Form.Select
+                  <Form.Control
                     id="category"
+                    as="select"
                     value={form.category}
                     onChange={(e) => updateForm({ category: e.target.value })}
                   >
-                    <option>Indoor Plants</option>
-                    <option>Outdoor Plants</option>
-                    <option>Kitchen Garden</option>
-                  </Form.Select>
+                    <option value="Indoor Plants">Indoor Plants</option>
+                    <option value="Outdoor Plants">Outdoor Plants</option>
+                    <option value="Kitchen Garden">Kitchen Garden</option>
+                  </Form.Control>
                 </Form.Group>
-                <Form.Group className="mb-4" controlId="formName">
-                  <Form.Label className="fw-bold">Title</Form.Label>
+                <Form.Group className="mb-4">
+                  <Form.Label className="fw-bold">Product Name</Form.Label>
                   <Form.Control
                     id="name"
                     value={form.name}
@@ -149,7 +152,7 @@ export default function Edit() {
                     type="text"
                   />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formPrice">
+                <Form.Group className="mb-3">
                   <Form.Label className="fw-bold">Price</Form.Label>
                   <Form.Control
                     id="price"
@@ -158,17 +161,8 @@ export default function Edit() {
                     type="text"
                   />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formQuantity">
-                  <Form.Label className="fw-bold">Quantity</Form.Label>
-                  <Form.Control
-                    id="quantity"
-                    value={form.quantity}
-                    onChange={(e) => updateForm({ quantity: e.target.value })}
-                    type="text"
-                    placeholder="How many do you have available?"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formDescription">
+
+                <Form.Group className="mb-3">
                   <Form.Label className="fw-bold">Description</Form.Label>
                   <Form.Control
                     id="description"
@@ -180,7 +174,7 @@ export default function Edit() {
                     rows={3}
                   />
                 </Form.Group>
-                <div class="d-grid gap-2 col-6 mx-auto">
+                <div className="d-grid gap-2 col-6 mx-auto">
                   <Button className="fw-bold" variant="dark" type="submit">
                     UPDATE
                   </Button>
