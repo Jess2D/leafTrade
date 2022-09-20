@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import styled from "styled-components";
 import { Button, Container, Form } from "react-bootstrap";
-import editcoin from "../../assets/listing/editcoin.png";
+import coin from "../../assets/listing/editcoin.png";
 
 const Top = styled.div`
   padding: 32px;
@@ -22,24 +22,14 @@ const FormSize = styled.div`
   width: 500px;
 `;
 
-const MainTitle = styled.div`
-  margin-top: 30px;
-  font-size: 50px;
-  font-weight: bold;
-`;
-
-const Padding12 = styled.div`
-  padding: 12px;
-`;
-
-const PurpleSection = styled.div`
-  background: rgb(262, 242, 242);
-  background: linear-gradient(
-    90deg,
-    rgba(252, 237, 236, 1) 0%,
-    rgba(245, 221, 217, 1) 0%,
-    rgba(248, 227, 224, 1) 43%,
-    rgba(274, 215, 212, 1) 100%
+const BgSection = styled.div`
+  background-image: linear-gradient(
+    to right top,
+    #fcd6d5,
+    #f7dbd0,
+    #efe0d1,
+    #e8e4d7,
+    #e4e7de
   );
 `;
 
@@ -122,7 +112,7 @@ export default function Edit() {
             <Header>Edit Listings</Header>
             Update your own listings
           </div>
-          <img src={monstera} alt="monstera" width={"300px"} />
+          <img src={coin} alt="coin" width={"300px"} />
         </Top>
       </BgSection>
       <MainContent>

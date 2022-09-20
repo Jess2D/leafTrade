@@ -2,35 +2,29 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
-import toolsmanage from "../../assets/listing/toolsmanage.png";
+import coin from "../../assets/listing/editcoin.png";
 
 const Top = styled.div`
-  padding: 32px;
-  background:  #FCEAD5;
-  height; 200px;
+padding: 32px;
+height; 200px;
 `;
 
+const Header = styled.div`
+  font-size: 50px;
+  font-weight: bold;
+`;
 const MainContent = styled.div`
   padding: 32px;
 `;
 
-const MainTitle = styled.div`
-  font-size: 50px;
-  font-weight: bold;
-`;
-
-const Padding12 = styled.div`
-  padding: 12px;
-`;
-
-const PurpleSection = styled.div`
-  background: rgb(262, 242, 242);
-  background: linear-gradient(
-    90deg,
-    rgba(252, 237, 236, 1) 0%,
-    rgba(245, 221, 217, 1) 0%,
-    rgba(248, 227, 224, 1) 43%,
-    rgba(274, 215, 212, 1) 100%
+const BgSection = styled.div`
+  background-image: linear-gradient(
+    to right top,
+    #fcd6d5,
+    #f7dbd0,
+    #efe0d1,
+    #e8e4d7,
+    #e4e7de
   );
 `;
 
@@ -109,13 +103,16 @@ export default function MagageListing() {
   // This following section will display the table with the records of individuals.
   return (
     <div>
-      <Top>
-        <Container>
-          <h3> Manage Listings </h3>
-          Create an item, view a list, view item details, update or edit the
-          item and delete an item.
-        </Container>
-      </Top>
+      <BgSection>
+        <Top className="d-flex flex-row justify-content-between flex-wrap">
+          <div>
+            <Header>Manage Listings</Header>
+            Create an item, view a list, view item details, update or edit the
+            item and delete an item.
+          </div>
+          <img src={coin} alt="Tools" width={"300px"} />
+        </Top>
+      </BgSection>
       <MainContent>
         <Container>
           <table className="table table-striped" style={{ marginTop: 20 }}>
