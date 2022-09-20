@@ -91,10 +91,8 @@ export default function MagageListing() {
       <Top>
         <Container>
           <h3> Manage Listings </h3>
-          <p>
-            Create an item, view a list, view item details, update or edit the
-            item and delete an item.
-          </p>
+          Create an item, view a list, view item details, update or edit the
+          item and delete an item.
         </Container>
       </Top>
       <MainContent>
