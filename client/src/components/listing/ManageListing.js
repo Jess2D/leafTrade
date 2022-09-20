@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
+import toolsmanage from "../../assets/listing/toolsmanage.png";
 
 const Top = styled.div`
   padding: 32px;
@@ -11,6 +12,26 @@ const Top = styled.div`
 
 const MainContent = styled.div`
   padding: 32px;
+`;
+
+const MainTitle = styled.div`
+  font-size: 50px;
+  font-weight: bold;
+  `;
+
+const Padding12 = styled.div`
+  padding: 12px;
+`;
+
+const PurpleSection = styled.div`
+  background: rgb(262, 242, 242);
+  background: linear-gradient(
+    90deg,
+    rgba(252, 237, 236, 1) 0%,
+    rgba(245, 221, 217, 1) 0%,
+    rgba(248, 227, 224, 1) 43%,
+    rgba(274, 215, 212, 1) 100%
+  );
 `;
 
 const Record = (props) => (
@@ -88,15 +109,32 @@ export default function MagageListing() {
   // This following section will display the table with the records of individuals.
   return (
     <div>
-      <Top>
-        <Container>
-          <h3> Manage Listings </h3>
-          <p>
-            Create an item, view a list, view item details, update or edit the
-            item and delete an item.
-          </p>
-        </Container>
-      </Top>
+      <div className="position-relative">
+        <PurpleSection>
+          <Container>
+            <Padding12>
+              <div className="d-flex justify-content-between flex-wrap">
+                <div>
+                  <MainTitle>
+                    <p>
+                      Manage your listings
+                    </p>
+                  </MainTitle>
+                  <p className="lh-1">
+                  Here you can view all your listings, view item details,
+                  </p>
+                  <p className="lh-1">
+                  edit or delete an item.
+                  </p>
+                </div>
+                <div>
+                  <img src={toolsmanage} alt="toolsmanage" width={"300px"} />
+                </div>
+              </div>
+            </Padding12>
+          </Container>
+        </PurpleSection>
+      </div>
       <MainContent>
         <Container>
           <table className="table table-striped" style={{ marginTop: 20 }}>
@@ -112,6 +150,6 @@ export default function MagageListing() {
           </table>
         </Container>
       </MainContent>
-    </div>
+    </div >
   );
 }

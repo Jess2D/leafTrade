@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import styled from "styled-components";
 import { Button, Container, Form } from "react-bootstrap";
-import monstera from "../../assets/monstera.png";
+import editcoin from "../../assets/listing/editcoin.png";
 
 const Top = styled.div`
   padding: 32px;
@@ -22,14 +22,23 @@ const FormSize = styled.div`
   width: 500px;
 `;
 
-const BgSection = styled.div`
-  background: #fcd6d5;
+const MainTitle = styled.div`
+  font-size: 50px;
+  font-weight: bold;
+  `;
+
+const Padding12 = styled.div`
+  padding: 12px;
+`;
+
+const PurpleSection = styled.div`
+  background: rgb(262, 242, 242);
   background: linear-gradient(
     90deg,
     rgba(252, 237, 236, 1) 0%,
     rgba(245, 221, 217, 1) 0%,
     rgba(248, 227, 224, 1) 43%,
-    rgba(244, 215, 212, 1) 100%
+    rgba(274, 215, 212, 1) 100%
   );
 `;
 
@@ -105,15 +114,27 @@ export default function Edit() {
   // This following section will display the form that takes input from the user to update the data.
   return (
     <div>
-      <BgSection>
-        <Top className="d-flex flex-row justify-content-between flex-wrap">
-          <div>
-            <Header>Edit Listings</Header>
-            <p>Update your own listings</p>
-          </div>
-          <img src={monstera} alt="monstera" width={"300px"} />
-        </Top>
-      </BgSection>
+      <div className="position-relative">
+        <PurpleSection>
+          <Container>
+            <Padding12>
+              <div className="d-flex justify-content-between flex-wrap">
+                <div>
+                  <MainTitle>
+                  Edit listings
+                  </MainTitle>
+                  <p>
+                  Update your own listings
+                  </p>
+                </div>
+                <div>
+                  <img src={editcoin} alt="editcoin" width={"300px"} />
+                </div>
+              </div>
+            </Padding12>
+          </Container>
+        </PurpleSection>
+      </div>
       <MainContent>
         <Container>
           <div class="d-flex justify-content-center flex-wrap">
