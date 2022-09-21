@@ -6,6 +6,11 @@ import catalogMKT from "../../assets/catalogMKT.png";
 /**
  * @description Represents the style of Catalog Page
  */
+
+const Header = styled.div`
+  font-size: 50px;
+  font-weight: bold;
+`;
 const Padding32 = styled.div`
   padding: 32px;
 `;
@@ -110,7 +115,7 @@ const Catalog = () => {
           <Padding12>
             <div className="d-flex justify-content-between flex-wrap">
               <div className="">
-                <h1>Our range</h1>
+                <Header>Our range</Header>
                 <p>
                   Our huge range of plants includes indoor, outdoor, herbs,
                   natives, and so much more!
