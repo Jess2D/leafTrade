@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
+import User from "../user/User";
 
 const Box = styled.div`
+  padding: 12px;
   background: #fcd6d5;
-  height: 80px;
+  height: 50px;
 `;
 const Greetings = styled.div`
   color: #506053;
@@ -12,12 +14,24 @@ const Greetings = styled.div`
 
 export const Logout = () => {
   const userID = sessionStorage.getItem("user");
+  const user = User(userID);
+
   console.log(userID);
-  //sessionStorage.removeItem('user'); and go to home
+
   return (
     <Box>
-      <Container>
-        <Greetings>Hello @</Greetings>
+      <Container className="text-end d-flex justify-content-between">
+        <Greetings>Hello @{user.name}</Greetings>
+        <Button
+          className="fw-bold"
+          variant="outline-danger"
+          size="sm"
+          type="button"
+          href="/"
+          onClick={() => sessionStorage.removeItem("user")}
+        >
+          Logout
+        </Button>
       </Container>
     </Box>
   );

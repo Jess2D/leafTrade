@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import tools from "../../assets/listing/tools.png";
+import { Logout } from "../login/Logout";
 
 const Top = styled.div`
 padding: 32px;
@@ -103,6 +104,7 @@ export default function MagageListing() {
   // This following section will display the table with the records of individuals.
   return (
     <div>
+      <Logout />
       <BgSection>
         <Top className="d-flex flex-row justify-content-between flex-wrap">
           <div>

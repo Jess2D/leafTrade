@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { Container, Card, Form, Button } from "react-bootstrap";
 import plantbasket from "../../assets/newlisting/plantbasket.png";
+import { Logout } from "../login/Logout";
 
 const Padding32 = styled.div`
   padding: 32px;
@@ -84,6 +85,7 @@ export default function NewListing() {
   // This following section will display the form that takes the input from the user.
   return (
     <div>
+      <Logout />
       <div className="position-relative">
         <PurpleSection>
           <Container>
