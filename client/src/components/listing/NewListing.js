@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import { Container, Card, Form, Button } from "react-bootstrap";
+import { Container, Card, Form, Button, Alert, Modal } from "react-bootstrap";
 import plantbasket from "../../assets/newlisting/plantbasket.png";
 
 const Padding32 = styled.div`
@@ -42,6 +42,9 @@ export default function NewListing() {
     price: "",
   });
 
+  //Controls the state of the modal
+  const [modalShow, setModalShow] = useState(false);
+
   const navigate = useNavigate();
   // These methods will update the state properties.
   function updateForm(value) {
@@ -53,8 +56,8 @@ export default function NewListing() {
   // This function will handle the submission.
   async function onSubmit(e) {
     e.preventDefault();
-
-    // When a post request is sent to the CreateUser url, we'll add a new product to the database.
+   
+  // When a post request is sent to the CreateUser url, we'll add a new product to the database.
     const newPerson = { ...form };
 
     await fetch("http://localhost:5000/product/add", {
@@ -78,12 +81,49 @@ export default function NewListing() {
     });
     const url = "/managelisting";
 
-    navigate(url);
+  // This function shows the modal
+    setModalShow(true);
+
+  //This will give some delay before redirecting the user
+    setTimeout(() => {
+      navigate(url);
+    }, 4000);
+
+  }
+
+  function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Nice one!
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            We are publishing your new listing...
+          </p>
+          <p>
+            You will be redirected to Manage Listings once we are finished.
+          </p>
+        </Modal.Body>
+      </Modal>
+    );
   }
 
   // This following section will display the form that takes the input from the user.
   return (
     <div>
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+
       <div className="position-relative">
         <PurpleSection>
           <Container>
