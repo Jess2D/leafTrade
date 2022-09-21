@@ -11,14 +11,9 @@ import Product from "../product/Product";
 import Stack from "react-bootstrap/Stack";
 import { useParams } from "react-router";
 
-const Box = styled.div`
-  background: #fcd6d5;
-  height: 80px;
+const Padding32 = styled.div`
+  padding: 32px;
 `;
-const Padding = styled.div`
-  padding: 12px;
-`;
-
 const ProductTitle = styled.div`
   font-size: 64px;
   font-weight: bold;
@@ -96,67 +91,58 @@ const ProductView = () => {
   const product = Product(id);
   return (
     <div>
-      <Box>
-        <Container>
-          <Padding>
-            <Breadcrumb>
-              <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-              <Breadcrumb.Item href="/catalog">Catalog</Breadcrumb.Item>
-              <Breadcrumb.Item active>Peace Lily</Breadcrumb.Item>
-            </Breadcrumb>
-          </Padding>
-        </Container>
-      </Box>
       <Container>
-        <Row>
-          <Col>
-            <Card.Img variant="top" src={peacelily} />
-          </Col>
+        <Padding32>
+          <Row className="vh-100">
+            <Col>
+              <Card.Img variant="top" src={product.img} />
+            </Col>
 
-          <Col>
-            <Card.Title>
-              <ProductTitle>{product.name}</ProductTitle>
-              <ProductPrice>NZD {product.price}</ProductPrice>
-            </Card.Title>
+            <Col>
+              <Card.Title>
+                <ProductTitle>{product.name}</ProductTitle>
+                <ProductPrice>NZD {product.price}</ProductPrice>
+              </Card.Title>
 
-            <Card.Text>
-              <ProductDescription>{product.description}</ProductDescription>
-            </Card.Text>
+              <Card.Text>
+                <ProductDescription>{product.description}</ProductDescription>
+              </Card.Text>
 
-            <Row>
-              <Stack direction="horizontal" gap={3}>
-                <div>
-                  <InputPlaceholder>
-                    <InputDelete>-</InputDelete>
-                    <InputNumber>1</InputNumber>
-                    <InputAdd>+</InputAdd>
-                  </InputPlaceholder>
-                </div>
-                <div>
-                  <CartButton>Add to cart</CartButton>
-                </div>
-                <div>
-                  <Button variant="align-middle text-center btn-lg btn-outline-danger">
-                    &nbsp;
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="35"
-                      height="30"
-                      fill="currentColor"
-                      className="text-center bi bi-heart-fill align-middle"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-                      ></path>
-                    </svg>
-                  </Button>{" "}
-                </div>
-              </Stack>
-            </Row>
-          </Col>
-        </Row>
+              <Row>
+                <Stack direction="horizontal" gap={3}>
+                  <div>
+                    <InputPlaceholder>
+                      <InputDelete>-</InputDelete>
+                      <InputNumber>1</InputNumber>
+                      <InputAdd>+</InputAdd>
+                    </InputPlaceholder>
+                  </div>
+                  <div>
+                    <CartButton>Add to cart</CartButton>
+                  </div>
+                  <div>
+                    <Button variant="align-middle text-center btn-lg btn-outline-danger">
+                      &nbsp;
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="35"
+                        height="30"
+                        fill="currentColor"
+                        className="text-center bi bi-heart-fill align-middle"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                        ></path>
+                      </svg>
+                    </Button>{" "}
+                  </div>
+                </Stack>
+              </Row>
+            </Col>
+          </Row>
+        </Padding32>
       </Container>
     </div>
   );
