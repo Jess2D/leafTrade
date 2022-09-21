@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 import styled from "styled-components";
 import catalogMKT from "../../assets/catalogMKT.png";
 
@@ -18,7 +18,8 @@ const Img = styled.div`
   width: 189px;
 `;
 const CardSize = styled.div`
-  width: 220px;
+  width: 286px;
+  height: 420px;
 `;
 const PurpleSection = styled.div`
   background: rgb(242, 242, 242);
@@ -34,19 +35,26 @@ const PurpleSection = styled.div`
 /**
  * @description Represents a view of a single record of a product from MongoDB database
  */
+const url = "/product/";
 
 const Record = (props) => (
-  <CardSize className="align-self-center">
-    <Card className="align-self-center">
+  <Card className="d-flex flex-column">
+    <CardSize>
       <Card.Body>
         <Img className="text-center">
           <Card.Img variant="top" src={props.record.img} />
         </Img>
-        <Card.Title>{props.record.name}</Card.Title>
-        <Card.Text>{props.record.description}</Card.Text>
+        <Card.Title className="font-weight-bold">
+          {props.record.name}
+        </Card.Title>
+        <Card.Text>{props.record.category}</Card.Text>
+        <Card.Text>${props.record.price}</Card.Text>
+        <Button href={url + props.record._id} variant="secondary">
+          More info
+        </Button>
       </Card.Body>
-    </Card>
-  </CardSize>
+    </CardSize>
+  </Card>
 );
 
 /**
@@ -84,7 +92,7 @@ function RecordList() {
 
   // This following section will display the cards with the records of individuals.
   return (
-    <div className="d-inline-flex align-content-center justify-content-start gap-3 flex-wrap">
+    <div className="d-inline-flex align-content-center  gap-3 flex-wrap">
       {recordList()}
     </div>
   );
