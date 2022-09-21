@@ -15,6 +15,7 @@ import Questions from "./components/question/Questions";
 import FooterProductPage from "./components/productNavigation/ProductFooter";
 import MagageListing from "./components/listing/ManageListing";
 import Edit from "./components/listing/Edit";
+import { Logout } from "./components/login/Logout";
 
 const useAuth = () => {
   const user = sessionStorage.getItem("user");
@@ -45,6 +46,7 @@ const App = () => {
         <Route path="/questions/:id" element={<Questions />} />
         <Route path="/newListing" element={<NewListing />} />
         <Route path="/manageListing" element={<MagageListing />} />
+        <Route path="/logout" element={<Logout />} />
         <Route
           path="/private"
           element={
