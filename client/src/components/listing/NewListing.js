@@ -26,7 +26,7 @@ const PurpleSection = styled.div`
 const MainTitle = styled.div`
   font-size: 50px;
   font-weight: bold;
-  `;
+`;
 
 const FormSize = styled.div`
   width: 500px;
@@ -68,8 +68,17 @@ export default function NewListing() {
       return;
     });
 
-    setForm({ name: "", img: "", description: "", quantity: "", category: "", price: "",});
-    navigate("/");
+    setForm({
+      name: "",
+      img: "",
+      description: "",
+      quantity: "",
+      category: "",
+      price: "",
+    });
+    const url = "/managelisting";
+
+    navigate(url);
   }
 
   // This following section will display the form that takes the input from the user.
@@ -82,13 +91,9 @@ export default function NewListing() {
               <div className="d-flex justify-content-between flex-wrap">
                 <div>
                   <MainTitle>
-                    <p>
-                      New Listing
-                    </p>
+                    <p>New Listing</p>
                   </MainTitle>
-                  <p>
-                    You are just a few steps away from a great sale!
-                  </p>
+                  <p>You are just a few steps away from a great sale!</p>
                 </div>
                 <div>
                   <img src={plantbasket} alt="plantbasket" width={"300px"} />
@@ -110,12 +115,21 @@ export default function NewListing() {
                   type="file" /> */}
                   <Form.Group className="mb-3" controlId="formPhotos">
                     <Form.Label className="fw-bold">Add photo</Form.Label>
-                    <Form.Control id="name" value={form.img} onChange={(e) => updateForm({ img: e.target.value })}
-                      type="text" placeholder="Paste your URL here" />
+                    <Form.Control
+                      id="name"
+                      value={form.img}
+                      onChange={(e) => updateForm({ img: e.target.value })}
+                      type="text"
+                      placeholder="Paste your URL here"
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formCategory">
                     <Form.Label className="fw-bold">Category</Form.Label>
-                    <Form.Select id="category" value={form.category} onChange={(e) => updateForm({ category: e.target.value })}>
+                    <Form.Select
+                      id="category"
+                      value={form.category}
+                      onChange={(e) => updateForm({ category: e.target.value })}
+                    >
                       <option>Indoor Plants</option>
                       <option>Outdoor Plants</option>
                       <option>Kitchen Garden</option>
@@ -123,23 +137,46 @@ export default function NewListing() {
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formName">
                     <Form.Label className="fw-bold">Title</Form.Label>
-                    <Form.Control id="name" value={form.name} onChange={(e) => updateForm({ name: e.target.value })}
-                      type="text" placeholder="Write a title that will spark interest" />
+                    <Form.Control
+                      id="name"
+                      value={form.name}
+                      onChange={(e) => updateForm({ name: e.target.value })}
+                      type="text"
+                      placeholder="Write a title that will spark interest"
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formPrice">
                     <Form.Label className="fw-bold">Price</Form.Label>
-                    <Form.Control id="price" value={form.price} onChange={(e) => updateForm({ price: e.target.value })}
-                      type="text" placeholder="How much does it cost?" />
+                    <Form.Control
+                      id="price"
+                      value={form.price}
+                      onChange={(e) => updateForm({ price: e.target.value })}
+                      type="text"
+                      placeholder="How much does it cost?"
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formQuantity">
                     <Form.Label className="fw-bold">Quantity</Form.Label>
-                    <Form.Control id="quantity" value={form.quantity} onChange={(e) => updateForm({ quantity: e.target.value })}
-                      type="text" placeholder="How many do you have available?" />
+                    <Form.Control
+                      id="quantity"
+                      value={form.quantity}
+                      onChange={(e) => updateForm({ quantity: e.target.value })}
+                      type="text"
+                      placeholder="How many do you have available?"
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formDescription">
                     <Form.Label className="fw-bold">Description</Form.Label>
-                    <Form.Control id="description" value={form.description} onChange={(e) => updateForm({ description: e.target.value })}
-                      as="textarea" rows={3} placeholder="Keep it simple, using clear, descriptive words and aiming for positive connotations" />
+                    <Form.Control
+                      id="description"
+                      value={form.description}
+                      onChange={(e) =>
+                        updateForm({ description: e.target.value })
+                      }
+                      as="textarea"
+                      rows={3}
+                      placeholder="Keep it simple, using clear, descriptive words and aiming for positive connotations"
+                    />
                   </Form.Group>
                   <div class="d-grid gap-2 col-6 mx-auto">
                     <Button className="fw-bold" variant="dark" type="submit">
@@ -151,7 +188,7 @@ export default function NewListing() {
             </div>
           </Padding32>
         </Padding12>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }

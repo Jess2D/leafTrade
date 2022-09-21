@@ -98,7 +98,7 @@ export default function Edit() {
         "Content-Type": "application/json",
       },
     });
-    const url = "/product/" + params.id;
+    const url = "/managelisting";
 
     navigate(url);
   }
