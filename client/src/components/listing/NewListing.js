@@ -109,11 +109,7 @@ export default function NewListing() {
             <div class="d-flex justify-content-center">
               <FormSize>
                 <Form onSubmit={onSubmit}>
-                  {/* <Form.Group controlId="formPhotos" className="mb-3">
-                <Form.Label className="fw-bold">Add photos: 0/5</Form.Label>
-                <Form.Control id="img" value={form.img} onChange={(e) => updateForm({ img: e.target.value })}
-                  type="file" /> */}
-                  <Form.Group className="mb-3" controlId="formPhotos">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Add photo</Form.Label>
                     <Form.Control
                       id="name"
@@ -123,7 +119,7 @@ export default function NewListing() {
                       placeholder="Paste your URL here"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formCategory">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Category</Form.Label>
                     <Form.Select
                       id="category"
@@ -135,7 +131,7 @@ export default function NewListing() {
                       <option>Kitchen Garden</option>
                     </Form.Select>
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formName">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Title</Form.Label>
                     <Form.Control
                       id="name"
@@ -145,7 +141,7 @@ export default function NewListing() {
                       placeholder="Write a title that will spark interest"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formPrice">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Price</Form.Label>
                     <Form.Control
                       id="price"
@@ -155,7 +151,7 @@ export default function NewListing() {
                       placeholder="How much does it cost?"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formQuantity">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Quantity</Form.Label>
                     <Form.Control
                       id="quantity"
@@ -165,7 +161,7 @@ export default function NewListing() {
                       placeholder="How many do you have available?"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formDescription">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Description</Form.Label>
                     <Form.Control
                       id="description"
