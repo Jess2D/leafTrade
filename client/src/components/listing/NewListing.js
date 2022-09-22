@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Modal } from "react-bootstrap";
 import plantbasket from "../../assets/newlisting/plantbasket.png";
 import { Logout } from "../login/Logout";
 import User from "../user/User";
@@ -48,6 +48,9 @@ export default function NewListing() {
     userID: { user_id: user._id },
   });
 
+  //Controls the state of the modal
+  const [modalShow, setModalShow] = useState(false);
+
   const navigate = useNavigate();
   // These methods will update the state properties.
   function updateForm(value) {
@@ -61,14 +64,14 @@ export default function NewListing() {
     e.preventDefault();
 
     // When a post request is sent to the CreateUser url, we'll add a new product to the database.
-    const newPerson = { ...form };
+    const newListing = { ...form };
 
     await fetch("http://localhost:5000/product/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPerson),
+      body: JSON.stringify(newListing),
     }).catch((error) => {
       window.alert(error);
       return;
@@ -85,13 +88,45 @@ export default function NewListing() {
     });
     const url = "/managelisting";
 
-    navigate(url);
+    // This function shows the modal
+    setModalShow(true);
+
+    //This will give some delay before redirecting the user
+    setTimeout(() => {
+      navigate(url);
+    }, 4000);
+  }
+
+  function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Nice one!
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>We are publishing your new listing...</p>
+          <p>You will be redirected to Manage Listings once we are finished.</p>
+        </Modal.Body>
+      </Modal>
+    );
   }
 
   // This following section will display the form that takes the input from the user.
   return (
     <div>
       <Logout />
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+
       <div className="position-relative">
         <PurpleSection>
           <Container>
@@ -117,11 +152,7 @@ export default function NewListing() {
             <div class="d-flex justify-content-center">
               <FormSize>
                 <Form onSubmit={onSubmit}>
-                  {/* <Form.Group controlId="formPhotos" className="mb-3">
-                <Form.Label className="fw-bold">Add photos: 0/5</Form.Label>
-                <Form.Control id="img" value={form.img} onChange={(e) => updateForm({ img: e.target.value })}
-                  type="file" /> */}
-                  <Form.Group className="mb-3" controlId="formPhotos">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Add photo</Form.Label>
                     <Form.Control
                       id="name"
@@ -131,7 +162,7 @@ export default function NewListing() {
                       placeholder="Paste your URL here"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formCategory">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Category</Form.Label>
                     <Form.Select
                       id="category"
@@ -143,7 +174,7 @@ export default function NewListing() {
                       <option>Kitchen Garden</option>
                     </Form.Select>
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formName">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Title</Form.Label>
                     <Form.Control
                       id="name"
@@ -153,7 +184,7 @@ export default function NewListing() {
                       placeholder="Write a title that will spark interest"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formPrice">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Price</Form.Label>
                     <Form.Control
                       id="price"
@@ -163,7 +194,7 @@ export default function NewListing() {
                       placeholder="How much does it cost?"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formQuantity">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Quantity</Form.Label>
                     <Form.Control
                       id="quantity"
@@ -173,7 +204,7 @@ export default function NewListing() {
                       placeholder="How many do you have available?"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formDescription">
+                  <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Description</Form.Label>
                     <Form.Control
                       id="description"

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import styled from "styled-components";
 import tools from "../../assets/listing/tools.png";
 import { Logout } from "../login/Logout";
@@ -116,6 +116,16 @@ export default function MagageListing() {
         </Top>
       </BgSection>
       <MainContent>
+        <Container>
+          <Button
+            className="fw-bold"
+            href="/newlisting"
+            variant="dark"
+            type="submit"
+          >
+            New Listing
+          </Button>
+        </Container>
         <Container>
           <table className="table table-striped" style={{ marginTop: 20 }}>
             <thead>
