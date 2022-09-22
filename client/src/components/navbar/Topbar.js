@@ -32,15 +32,15 @@ const TopBar = () => {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Nav.Link className="text-white" href="#action1">
+                <Nav.Link className="text-white" href="/catalog">
                   {" "}
                   Indoor Plants{" "}
                 </Nav.Link>
-                <Nav.Link className="text-white" href="#action2">
+                <Nav.Link className="text-white" href="/catalog">
                   {" "}
                   Outdoor Plants{" "}
                 </Nav.Link>
-                <Nav.Link className="text-white" href="#action3">
+                <Nav.Link className="text-white" href="/catalog">
                   {" "}
                   Kitchen Herbs{" "}
                 </Nav.Link>
