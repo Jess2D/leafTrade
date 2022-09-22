@@ -73,7 +73,7 @@ apiRoutes.route("/product/:id").get(function (req, res) {
 apiRoutes.route("/product/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
-    userID: { user_id: ObjectId(req.params.userID), ref: "user" },
+    userID: { user_id: req.params.userID },
     name: req.body.name,
     description: req.body.description,
     quantity: req.body.quantity,

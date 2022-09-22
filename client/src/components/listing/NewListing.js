@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import { Container, Card, Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import plantbasket from "../../assets/newlisting/plantbasket.png";
 import { Logout } from "../login/Logout";
+import User from "../user/User";
 
 const Padding32 = styled.div`
   padding: 32px;
@@ -34,6 +35,9 @@ const FormSize = styled.div`
 `;
 
 export default function NewListing() {
+  const userID = sessionStorage.getItem("user");
+  const user = User(userID);
+  console.log(user._id);
   const [form, setForm] = useState({
     img: "",
     name: "",
@@ -41,6 +45,7 @@ export default function NewListing() {
     quantity: "",
     category: "",
     price: "",
+    userID: { user_id: user._id },
   });
 
   const navigate = useNavigate();
@@ -76,6 +81,7 @@ export default function NewListing() {
       quantity: "",
       category: "",
       price: "",
+      userID: { user_id: user._id },
     });
     const url = "/managelisting";
 

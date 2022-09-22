@@ -98,6 +98,7 @@ const Login = () => {
                       onClick={sessionStorage.setItem("user", selectedUser)}
                       variant="outline-success"
                       type="button"
+                      href="/managelisting"
                     >
                       Login
                     </Button>
