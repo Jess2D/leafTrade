@@ -37,6 +37,7 @@ const FormSize = styled.div`
 export default function NewListing() {
   const userID = sessionStorage.getItem("user");
   const user = User(userID);
+  const newID = user._id;
   console.log(user._id);
   const [form, setForm] = useState({
     img: "",
@@ -45,7 +46,7 @@ export default function NewListing() {
     quantity: "",
     category: "",
     price: "",
-    userID: { user_id: user._id },
+    userID: { user_id: "" },
   });
 
   //Controls the state of the modal
@@ -84,7 +85,7 @@ export default function NewListing() {
       quantity: "",
       category: "",
       price: "",
-      userID: { user_id: user._id },
+      userID: "",
     });
     const url = "/managelisting";
 
@@ -218,7 +219,12 @@ export default function NewListing() {
                     />
                   </Form.Group>
                   <div class="d-grid gap-2 col-6 mx-auto">
-                    <Button className="fw-bold" variant="dark" type="submit">
+                    <Button
+                      onClick={() => updateForm({ userID: newID })}
+                      className="fw-bold"
+                      variant="dark"
+                      type="submit"
+                    >
                       PUBLISH
                     </Button>
                   </div>

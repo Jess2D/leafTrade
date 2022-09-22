@@ -73,7 +73,7 @@ apiRoutes.route("/product/:id").get(function (req, res) {
 apiRoutes.route("/product/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
-    userID: { user_id: req.body.userID },
+    userID: req.body.userID,
     name: req.body.name,
     description: req.body.description,
     quantity: req.body.quantity,
@@ -83,19 +83,14 @@ apiRoutes.route("/product/add").post(function (req, response) {
     questions: [
       {
         title: req.body.title,
-        quserID: { quser_id: req.body.userID },
+        quserID: req.body.userID,
         answer: req.body.answer,
-        answers: [
-          {
-            answer: req.body.answer,
-          },
-        ],
       },
     ],
     reviews: [
       {
         rate: req.body.rate,
-        ruserID: { ruser_id: req.body.userID },
+        ruserID: req.body.userID,
         review: req.body.review,
       },
     ],
