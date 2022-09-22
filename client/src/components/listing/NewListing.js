@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import { Container, Card, Form, Button, Alert, Modal } from "react-bootstrap";
+import { Container, Form, Button, Modal } from "react-bootstrap";
 import plantbasket from "../../assets/newlisting/plantbasket.png";
+import { Logout } from "../login/Logout";
+import User from "../user/User";
 
 const Padding32 = styled.div`
   padding: 32px;
@@ -33,6 +35,10 @@ const FormSize = styled.div`
 `;
 
 export default function NewListing() {
+  const userID = sessionStorage.getItem("user");
+  const user = User(userID);
+  const newID = user._id;
+  console.log(user._id);
   const [form, setForm] = useState({
     img: "",
     name: "",
@@ -40,6 +46,7 @@ export default function NewListing() {
     quantity: "",
     category: "",
     price: "",
+    userID: { user_id: "" },
   });
 
   //Controls the state of the modal
@@ -56,16 +63,16 @@ export default function NewListing() {
   // This function will handle the submission.
   async function onSubmit(e) {
     e.preventDefault();
-   
-  // When a post request is sent to the CreateUser url, we'll add a new product to the database.
-    const newPerson = { ...form };
+
+    // When a post request is sent to the CreateUser url, we'll add a new product to the database.
+    const newListing = { ...form };
 
     await fetch("http://localhost:5000/product/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPerson),
+      body: JSON.stringify(newListing),
     }).catch((error) => {
       window.alert(error);
       return;
@@ -78,17 +85,17 @@ export default function NewListing() {
       quantity: "",
       category: "",
       price: "",
+      userID: "",
     });
     const url = "/managelisting";
 
-  // This function shows the modal
+    // This function shows the modal
     setModalShow(true);
 
-  //This will give some delay before redirecting the user
+    //This will give some delay before redirecting the user
     setTimeout(() => {
       navigate(url);
     }, 4000);
-
   }
 
   function MyVerticallyCenteredModal(props) {
@@ -105,12 +112,8 @@ export default function NewListing() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
-            We are publishing your new listing...
-          </p>
-          <p>
-            You will be redirected to Manage Listings once we are finished.
-          </p>
+          <p>We are publishing your new listing...</p>
+          <p>You will be redirected to Manage Listings once we are finished.</p>
         </Modal.Body>
       </Modal>
     );
@@ -119,6 +122,7 @@ export default function NewListing() {
   // This following section will display the form that takes the input from the user.
   return (
     <div>
+      <Logout />
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
@@ -166,9 +170,9 @@ export default function NewListing() {
                       value={form.category}
                       onChange={(e) => updateForm({ category: e.target.value })}
                     >
-                      <option>Indoor Plants</option>
-                      <option>Outdoor Plants</option>
-                      <option>Kitchen Garden</option>
+                      <option value="Indoor Plants">Indoor Plants</option>
+                      <option value="Outdoor Plants">Outdoor Plants</option>
+                      <option value="Kitchen Garden">Kitchen Garden</option>
                     </Form.Select>
                   </Form.Group>
                   <Form.Group className="mb-3">
@@ -215,7 +219,12 @@ export default function NewListing() {
                     />
                   </Form.Group>
                   <div class="d-grid gap-2 col-6 mx-auto">
-                    <Button className="fw-bold" variant="dark" type="submit">
+                    <Button
+                      onClick={() => updateForm({ userID: newID })}
+                      className="fw-bold"
+                      variant="dark"
+                      type="submit"
+                    >
                       PUBLISH
                     </Button>
                   </div>

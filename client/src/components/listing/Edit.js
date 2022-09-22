@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import styled from "styled-components";
 import { Button, Container, Form } from "react-bootstrap";
 import coin from "../../assets/listing/editcoin.png";
+import { Logout } from "../login/Logout";
 
 const Top = styled.div`
   padding: 32px;
@@ -106,6 +107,7 @@ export default function Edit() {
   // This following section will display the form that takes input from the user to update the data.
   return (
     <div>
+      <Logout />
       <BgSection>
         <Top className="d-flex flex-row justify-content-between flex-wrap">
           <div>
