@@ -11,11 +11,11 @@ import Catalog from "./components/catalog/Catalog";
 import Login from "./components/login/Login";
 import Reviews from "./components/review/Reviews";
 import Questions from "./components/question/Questions";
-import FooterProductPage from "./components/productNavigation/ProductFooter";
 import ManageListing from "./components/listing/ManageListing";
 import MagageAll from "./components/listing/ManageAll";
 import Edit from "./components/listing/Edit";
 import { Logout } from "./components/login/Logout";
+import FooterProductPage from "./components/productNavigation/ProductFooter";
 
 const useAuth = () => {
   const user = sessionStorage.getItem("user");
@@ -37,10 +37,10 @@ const App = () => {
       <TopBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/prodNav/:id" element={<FooterProductPage />} />
-        <Route path="/reviews/:id" element={<Reviews />} />
-        <Route path="/questions/:id" element={<Questions />} />
+        <Route path="/product/:id" element={<Product />}>
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="qa" element={<Questions />} />
+        </Route>
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product/user/:listing" element={<ManageListing />} />

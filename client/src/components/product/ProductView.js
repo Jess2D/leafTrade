@@ -3,13 +3,13 @@ import styled from "styled-components";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import peacelily from "../../assets/homeassets/peacelilysqr.jpeg";
 import Product from "../product/Product";
 import Stack from "react-bootstrap/Stack";
 import { useParams } from "react-router";
+import FooterProductPage from "../productNavigation/ProductFooter";
+import { Outlet } from "react-router";
 
 const Padding32 = styled.div`
   padding: 32px;
@@ -25,6 +25,7 @@ const ProductPrice = styled.div`
 
 const ProductDescription = styled.div`
   font-size: 16px;
+  padding: 12px;
 `;
 const InputPlaceholder = styled.div`
   font-size: 16px;
@@ -104,9 +105,9 @@ const ProductView = () => {
                 <ProductPrice>NZD {product.price}</ProductPrice>
               </Card.Title>
 
-              <Card.Text>
+              <Card.Body>
                 <ProductDescription>{product.description}</ProductDescription>
-              </Card.Text>
+              </Card.Body>
 
               <Row>
                 <Stack direction="horizontal" gap={3}>
@@ -144,6 +145,8 @@ const ProductView = () => {
           </Row>
         </Padding32>
       </Container>
+      <FooterProductPage />
+      <Outlet />
     </div>
   );
 };

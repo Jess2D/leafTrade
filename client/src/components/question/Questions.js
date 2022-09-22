@@ -11,6 +11,7 @@ import {
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
+import ProductView from "../product/ProductView";
 
 const Box = styled.div`
   margin: 32px;
@@ -34,7 +35,7 @@ const Question = (props) => (
         <div>
           <FontAwesomeIcon icon={faUser} />
           <b> Author: </b>
-          {getUser(props.id)}
+          {getUser(props.question.quserID)}
         </div>
         <div>
           <FontAwesomeIcon icon={faCheck} />
