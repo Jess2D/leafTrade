@@ -169,9 +169,9 @@ export default function NewListing() {
                       value={form.category}
                       onChange={(e) => updateForm({ category: e.target.value })}
                     >
-                      <option>Indoor Plants</option>
-                      <option>Outdoor Plants</option>
-                      <option>Kitchen Garden</option>
+                      <option value="Indoor Plants">Indoor Plants</option>
+                      <option value="Outdoor Plants">Outdoor Plants</option>
+                      <option value="Kitchen Garden">Kitchen Garden</option>
                     </Form.Select>
                   </Form.Group>
                   <Form.Group className="mb-3">
