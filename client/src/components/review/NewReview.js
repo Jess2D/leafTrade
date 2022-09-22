@@ -36,7 +36,7 @@ const NewReview = () => {
                         Overall rating (1 being Terrible and 5 being Amazing)
                      </Form.Label>
                     <Col sm={10}>
-                     <Form.Check
+                     <Form.Check required
                         type="radio"
                         label="1"
                         name="formRadio"
@@ -71,7 +71,7 @@ const NewReview = () => {
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Add a written review</Form.Label>
-                    <Form.Control
+                    <Form.Control required
                       id="description"
                       as="textarea"
                       rows={3}
@@ -80,7 +80,7 @@ const NewReview = () => {
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Choose your public name</Form.Label>
-                    <Form.Control
+                    <Form.Control required
                       id="name"
                       type="text"
                       placeholder="This is how you will appear to other customers"

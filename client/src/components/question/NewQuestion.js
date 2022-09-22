@@ -32,7 +32,7 @@ const NewQuestion = () => {
                 <Form>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">What is your question?</Form.Label>
-                    <Form.Control
+                    <Form.Control required
                       id="description"
                       as="textarea"
                       rows={3}
@@ -41,7 +41,7 @@ const NewQuestion = () => {
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Choose your public name</Form.Label>
-                    <Form.Control
+                    <Form.Control required
                       id="name"
                       type="text"
                       placeholder="This is how you will appear to other customers"
