@@ -69,6 +69,15 @@ apiRoutes.route("/product/:id").get(function (req, res) {
   });
 });
 
+apiRoutes.route("/product/user/:userid").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { userID: req.params.id };
+  db_connect.collection("products").findOne(myquery, function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
 // This section will help you create a new product.
 apiRoutes.route("/product/add").post(function (req, response) {
   let db_connect = dbo.getDb();
