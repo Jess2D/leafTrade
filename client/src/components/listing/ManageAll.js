@@ -115,6 +115,7 @@ export default function MagageAll() {
           <img src={tools} alt="Tools" width={"300px"} />
         </Top>
       </BgSection>
+
       <MainContent>
         <Container>
           <Button

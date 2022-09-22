@@ -6,14 +6,14 @@ import Home from "./components/home/Home";
 import TopBar from "./components/navbar/Topbar";
 import Product from "./components/product/ProductView";
 import NewListing from "./components/listing/NewListing";
-//import MagageListing from "./components/listing/ManageListing";
 import Footer from "./components/footer/Footer";
 import Catalog from "./components/catalog/Catalog";
 import Login from "./components/login/Login";
 import Reviews from "./components/review/Reviews";
 import Questions from "./components/question/Questions";
 import FooterProductPage from "./components/productNavigation/ProductFooter";
-import MagageListing from "./components/listing/ManageListing";
+import ManageListing from "./components/listing/ManageListing";
+import MagageAll from "./components/listing/ManageAll";
 import Edit from "./components/listing/Edit";
 import { Logout } from "./components/login/Logout";
 
@@ -38,29 +38,37 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/product/:id" element={<Product />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/prodNav/:id" element={<FooterProductPage />} />
         <Route path="/reviews/:id" element={<Reviews />} />
-        <Route path="/edit/:id" element={<Edit />} />
         <Route path="/questions/:id" element={<Questions />} />
-        <Route path="/newListing" element={<NewListing />} />
-        <Route path="/manageListing" element={<MagageListing />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/user/:listing" element={<ManageListing />} />
         <Route path="/logout" element={<Logout />} />
         <Route
-          path="/private"
+          path="/edit/:id"
           element={
             <PrivateRoute>
-              <Catalog />
+              <Edit />
             </PrivateRoute>
           }
         />
-        {/*<PrivateRoute path="/product/:id/review" element={<Reviews />} />
-        <PrivateRoute
-          path="/product/:id/question/:id"
-          element={<Questions />}
+        <Route
+          path="/managelisting"
+          element={
+            <PrivateRoute>
+              <MagageAll />
+            </PrivateRoute>
+          }
         />
-        <PrivateRoute path="/newListing" element={<NewListing />} />*/}
+        <Route
+          path="/newListing"
+          element={
+            <PrivateRoute>
+              <NewListing />
+            </PrivateRoute>
+          }
+        />
       </Routes>
       <Footer />
     </MainFont>

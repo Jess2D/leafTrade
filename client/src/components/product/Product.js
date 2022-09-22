@@ -61,7 +61,7 @@ export default function Product(product_id) {
     fetchData();
 
     return;
-  }, [params.id, navigate]);
+  }, [params.id, navigate, product_id]);
 
   // This following section will display the item that takes input from the user to update the data.
   return item;

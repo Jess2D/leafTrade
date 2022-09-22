@@ -69,13 +69,16 @@ apiRoutes.route("/product/:id").get(function (req, res) {
   });
 });
 
-apiRoutes.route("/product/user/:userid").get(function (req, res) {
-  let db_connect = dbo.getDb();
-  let myquery = { userID: req.params.id };
-  db_connect.collection("products").findOne(myquery, function (err, result) {
-    if (err) throw err;
-    res.json(result);
-  });
+apiRoutes.route("/product/user/:listings").get(function (req, res) {
+  let db_connect = dbo.getDb("LeafTrade");
+  let myquery = { userID: req.params.listings };
+  db_connect
+    .collection("products")
+    .find({ myquery })
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
 });
 
 // This section will help you create a new product.

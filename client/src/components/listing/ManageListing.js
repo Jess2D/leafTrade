@@ -4,6 +4,8 @@ import { Container, Button } from "react-bootstrap";
 import styled from "styled-components";
 import tools from "../../assets/listing/tools.png";
 import { Logout } from "../login/Logout";
+import User from "../user/User";
+import { useParams, useNavigate } from "react-router";
 
 const Top = styled.div`
 padding: 32px;
@@ -57,11 +59,18 @@ const Record = (props) => (
 
 export default function MagageListing() {
   const [records, setRecords] = useState([]);
+  const userID = sessionStorage.getItem("user");
+  const user = User(userID);
+  const newID = user._id;
+  console.log(user._id);
+  const params = useParams();
 
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:5000/product/`);
+      const response = await fetch(
+        `http://localhost:5000/product/user/${params.userID.toString()}`
+      );
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -76,7 +85,7 @@ export default function MagageListing() {
     getRecords();
 
     return;
-  }, [records.length]);
+  }, [params.userID, records.length]);
 
   // This method will delete a record
   async function deleteRecord(id) {
