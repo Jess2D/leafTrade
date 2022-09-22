@@ -78,14 +78,6 @@ const NewReview = () => {
                       placeholder="What did you like or dislike? Would you buy again?"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3">
-                    <Form.Label className="fw-bold">Choose your public name</Form.Label>
-                    <Form.Control required
-                      id="name"
-                      type="text"
-                      placeholder="This is how you will appear to other customers"
-                    />
-                  </Form.Group>
                   <div class="d-grid gap-2 col-6 mx-auto">
                     <Button className="fw-bold" variant="dark" type="submit">
                       Submit
