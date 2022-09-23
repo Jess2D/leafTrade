@@ -10,6 +10,7 @@ import Footer from "./components/footer/Footer";
 import Catalog from "./components/catalog/Catalog";
 import Login from "./components/login/Login";
 import Reviews from "./components/review/Reviews";
+import NewReview from "./components/review/NewReview";
 import Questions from "./components/question/Questions";
 import ManageListing from "./components/listing/ManageListing";
 import MagageAll from "./components/listing/ManageAll";
