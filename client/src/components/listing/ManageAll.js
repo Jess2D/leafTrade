@@ -9,7 +9,9 @@ const Top = styled.div`
 padding: 32px;
 height; 200px;
 `;
-
+const Margin = styled.div`
+  margin-left: 2px;
+`;
 const Header = styled.div`
   font-size: 50px;
   font-weight: bold;
@@ -122,10 +124,20 @@ export default function MagageAll() {
             className="fw-bold"
             href="/newlisting"
             variant="dark"
-            type="submit"
+            type="button"
           >
             New Listing
           </Button>
+          <Margin>
+            <Button
+              className="fw-bold"
+              href="/managequestions"
+              variant="secondary"
+              type="button"
+            >
+              Answer questions
+            </Button>
+          </Margin>
         </Container>
         <Container>
           <table className="table table-striped" style={{ marginTop: 20 }}>
