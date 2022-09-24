@@ -14,11 +14,11 @@ export default function User(user_id) {
   useEffect(() => {
     async function fetchData() {
       const id = user_id;
+      console.log(id);
       const response = await fetch(`http://localhost:5000/user/${id}`);
 
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
         return;
       }
 
@@ -35,7 +35,7 @@ export default function User(user_id) {
     fetchData();
 
     return;
-  }, [params.id, navigate]);
+  }, [params.id, navigate, user_id]);
 
   // This following section will display the item that takes input from the user to update the data.
   return item;

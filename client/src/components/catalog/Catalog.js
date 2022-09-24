@@ -54,7 +54,7 @@ const Record = (props) => (
         </Card.Title>
         <Card.Text>{props.record.category}</Card.Text>
         <Card.Text>${props.record.price}</Card.Text>
-        <Button href={url + props.record._id} variant="secondary">
+        <Button href={url + props.record._id + "/reviews"} variant="secondary">
           More info
         </Button>
       </Card.Body>

@@ -134,9 +134,7 @@ export default function NewListing() {
             <Padding12>
               <div className="d-flex justify-content-between flex-wrap">
                 <div>
-                  <MainTitle>
-                    <p>New Listing</p>
-                  </MainTitle>
+                  <MainTitle>New Listing</MainTitle>
                   <p>You are just a few steps away from a great sale!</p>
                 </div>
                 <div>

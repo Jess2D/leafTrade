@@ -1,102 +1,72 @@
-import React from "react";
-import { useParams } from "react-router";
-import { Container } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Container, Button } from "react-bootstrap";
 import styled from "styled-components";
-import Product from "../product/Product";
-import User from "../user/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import Button from "react-bootstrap/Button";
 
 const Box = styled.div`
   margin: 32px;
   font-style: italic;
 `;
 
-const getUser = (id) => {
-  const user = User(id);
-  return user.name;
-};
+const Record = (props) => (
+  <Container>
+    <Box>
+      <div>
+        {props.record.rate}
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+      </div>
 
-const getRating = (quant) => {
-  let number = quant;
-  console.log(number);
-  if ((number = 5)) {
-    return (
-      <div>
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-      </div>
-    );
-  } else if ((number = 4)) {
-    return (
-      <div>
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-      </div>
-    );
-  } else if ((number = 3)) {
-    return (
-      <div>
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-      </div>
-    );
-  } else if ((number = 2)) {
-    return (
-      <div>
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-      </div>
-    );
-  } else if ((number = 1)) {
-    return (
-      <div>
-        <FontAwesomeIcon icon={faStar} />
-      </div>
-    );
-  } else return <div></div>;
-};
-
-const Review = (props) => (
-  <div>
-    <Container>
-      <Box>
-        <div>{getRating(props.review.rate)}</div>
-        <div>{props.review.review}</div>
-        <div>{getUser(props.id)}</div>
-      </Box>
-    </Container>
-  </div>
+      <div>{props.record.review}</div>
+      <div>{props.record.userId}</div>
+    </Box>
+  </Container>
 );
 
 export default function Reviews() {
-  const params = useParams();
-  const id = params.id.toString();
-  const product = Product(id);
-  const url = "/product/" + product._id + "/review/add";
-  const ReviewList = () => {
-    return product.reviews.map((review, key) => {
-      return <Review review={review} id={review.ruserID.ruser_id} key={key} />;
-    });
-  };
+  const [records, setRecords] = useState([]);
+  let url;
+  // This method fetches the records from the database.
+  useEffect(() => {
+    async function getRecords() {
+      const response = await fetch(`http://localhost:5000/review/`);
 
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+
+      const records = await response.json();
+      setRecords(records);
+    }
+
+    getRecords();
+
+    return;
+  }, [records.length]);
+
+  // This method will map out the records on the table
+  function recordList() {
+    return records.map((record) => {
+      url = "/newreview/" + record.productId;
+      return <Record record={record} key={record._id} />;
+    });
+  }
+
+  // This following section will display the table with the records of individuals.
   return (
-    <div>
-      <Container>
-        {ReviewList()}
-        <Box>
-          <Button variant="dark" href={url}>
-            Review this product
-          </Button>
-        </Box>
-      </Container>
-    </div>
+    <Container>
+      {recordList()}
+      <Box>
+        <Button variant="dark" href={url}>
+          Review this product
+        </Button>
+      </Box>
+    </Container>
   );
 }

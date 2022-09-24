@@ -4,8 +4,6 @@ import { Container, Button } from "react-bootstrap";
 import styled from "styled-components";
 import tools from "../../assets/listing/tools.png";
 import { Logout } from "../login/Logout";
-import User from "../user/User";
-import { useParams, useNavigate } from "react-router";
 
 const Top = styled.div`
 padding: 32px;
@@ -33,44 +31,25 @@ const BgSection = styled.div`
 
 const Record = (props) => (
   <tr>
+    <td>{props.record.question}</td>
+    <td>{props.record.answer}</td>
+    <td>{props.record.userId}</td>
+    <td>{props.record.productId}</td>
     <td>
-      <img src={props.record.img} alt={props.record.name} width={"89px"} />
-    </td>
-    <td>{props.record.name}</td>
-    <td>{props.record.category}</td>
-    <td>{props.record.price}</td>
-
-    <td>
-      <Link className="btn btn-link" to={`/edit/${props.record._id}`}>
+      <Link className="btn btn-link" to={`/question/edit/${props.record._id}`}>
         Edit
       </Link>{" "}
-      |
-      <button
-        className="btn btn-link"
-        onClick={() => {
-          props.deleteRecord(props.record._id);
-        }}
-      >
-        Delete
-      </button>
     </td>
   </tr>
 );
 
-export default function MagageListing() {
+export default function MagageQuestions() {
   const [records, setRecords] = useState([]);
-  const userID = sessionStorage.getItem("user");
-  const user = User(userID);
-  const newID = user._id;
-  console.log(user._id);
-  const params = useParams();
 
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(
-        `http://localhost:5000/product/user/${params.userID.toString()}`
-      );
+      const response = await fetch(`http://localhost:5000/question/`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -85,28 +64,12 @@ export default function MagageListing() {
     getRecords();
 
     return;
-  }, [params.userID, records.length]);
-
-  // This method will delete a record
-  async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/${id}`, {
-      method: "DELETE",
-    });
-
-    const newRecords = records.filter((el) => el._id !== id);
-    setRecords(newRecords);
-  }
+  }, [records.length]);
 
   // This method will map out the records on the table
   function recordList() {
     return records.map((record) => {
-      return (
-        <Record
-          record={record}
-          deleteRecord={() => deleteRecord(record._id)}
-          key={record._id}
-        />
-      );
+      return <Record record={record} key={record._id} />;
     });
   }
 
@@ -117,32 +80,23 @@ export default function MagageListing() {
       <BgSection>
         <Top className="d-flex flex-row justify-content-between flex-wrap">
           <div>
-            <Header>Manage Listings</Header>
-            Create an item, view a list, view item details, update or edit the
-            item and delete an item.
+            <Header>Answer questions</Header>
+            View all Q&A, details and answer a question
           </div>
           <img src={tools} alt="Tools" width={"300px"} />
         </Top>
       </BgSection>
+
       <MainContent>
-        <Container>
-          <Button
-            className="fw-bold"
-            href="/newlisting"
-            variant="dark"
-            type="submit"
-          >
-            New Listing
-          </Button>
-        </Container>
+        <Container></Container>
         <Container>
           <table className="table table-striped" style={{ marginTop: 20 }}>
             <thead>
               <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Price</th>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Product</th>
+                <th>User</th>
               </tr>
             </thead>
             <tbody>{recordList()}</tbody>

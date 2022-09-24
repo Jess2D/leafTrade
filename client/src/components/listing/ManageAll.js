@@ -9,7 +9,9 @@ const Top = styled.div`
 padding: 32px;
 height; 200px;
 `;
-
+const Margin = styled.div`
+  margin-left: 2px;
+`;
 const Header = styled.div`
   font-size: 50px;
   font-weight: bold;
@@ -115,16 +117,28 @@ export default function MagageAll() {
           <img src={tools} alt="Tools" width={"300px"} />
         </Top>
       </BgSection>
+
       <MainContent>
         <Container>
-          <Button
-            className="fw-bold"
-            href="/newlisting"
-            variant="dark"
-            type="submit"
-          >
-            New Listing
-          </Button>
+          <div className="d-flex gap-3">
+            {" "}
+            <Button
+              className="fw-bold"
+              href="/newlisting"
+              variant="dark"
+              type="button"
+            >
+              New Listing
+            </Button>
+            <Button
+              className="fw-bold"
+              href="/managequestions"
+              variant="secondary"
+              type="button"
+            >
+              Answer questions
+            </Button>
+          </div>
         </Container>
         <Container>
           <table className="table table-striped" style={{ marginTop: 20 }}>
