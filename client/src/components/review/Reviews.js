@@ -3,6 +3,7 @@ import { Container, Button } from "react-bootstrap";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import User from "../user/User";
 
 const Box = styled.div`
   margin: 32px;
@@ -13,16 +14,17 @@ const Record = (props) => (
   <Container>
     <Box>
       <div>
-        {props.record.rate}
         <FontAwesomeIcon icon={faStar} />
         <FontAwesomeIcon icon={faStar} />
         <FontAwesomeIcon icon={faStar} />
         <FontAwesomeIcon icon={faStar} />
         <FontAwesomeIcon icon={faStar} />
       </div>
-
+      <div>
+        Rate Score for Leaf Trade service and products : {props.record.rate}
+      </div>
       <div>{props.record.review}</div>
-      <div>{props.record.userId}</div>
+      <div>{User(props.record.userId).name}</div>
     </Box>
   </Container>
 );

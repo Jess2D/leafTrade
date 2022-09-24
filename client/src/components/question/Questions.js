@@ -7,6 +7,7 @@ import {
   faUser,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
+import User from "../user/User";
 
 const Box = styled.div`
   margin: 32px;
@@ -25,7 +26,7 @@ const Record = (props) => (
         <div>
           <FontAwesomeIcon icon={faUser} />
           <b> Author: </b>
-          {props.record.userId}
+          {User(props.record.userId).name}
         </div>
         <div>
           <FontAwesomeIcon icon={faCheck} />

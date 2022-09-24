@@ -4,6 +4,8 @@ import { Container, Button } from "react-bootstrap";
 import styled from "styled-components";
 import tools from "../../assets/listing/tools.png";
 import { Logout } from "../login/Logout";
+import User from "../user/User";
+import Product from "../product/Product";
 
 const Top = styled.div`
 padding: 32px;
@@ -29,15 +31,21 @@ const BgSection = styled.div`
   );
 `;
 
+const getUser = (id) => {
+  const user = User(id);
+  console.log(user.name);
+  return user.name;
+};
+
 const Record = (props) => (
   <tr>
     <td>{props.record.question}</td>
     <td>{props.record.answer}</td>
-    <td>{props.record.userId}</td>
-    <td>{props.record.productId}</td>
+    <td>{User(props.record.userId).name}</td>
+
     <td>
       <Link className="btn btn-link" to={`/question/edit/${props.record._id}`}>
-        Edit
+        Answer
       </Link>{" "}
     </td>
   </tr>
@@ -95,7 +103,6 @@ export default function MagageQuestions() {
               <tr>
                 <th>Question</th>
                 <th>Answer</th>
-                <th>Product</th>
                 <th>User</th>
               </tr>
             </thead>
