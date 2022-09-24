@@ -72,6 +72,15 @@ apiRoutes.route("/question/add").post(function (req, response) {
   });
 });
 
+apiRoutes.route("/question/:id").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { _id: ObjectId(req.params.id) };
+  db_connect.collection("questions").findOne(myquery, function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
 apiRoutes.route("/question/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };

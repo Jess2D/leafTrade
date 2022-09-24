@@ -17,6 +17,8 @@ import MagageAll from "./components/listing/ManageAll";
 import Edit from "./components/listing/Edit";
 import { Logout } from "./components/login/Logout";
 import NewQuestion from "./components/question/NewQuestion";
+import MagageQuestions from "./components/listing/ManageQuestions";
+import EditQuestion from "./components/listing/EditQuestion";
 
 const useAuth = () => {
   const user = sessionStorage.getItem("user");
@@ -71,6 +73,14 @@ const App = () => {
           }
         />
         <Route
+          path="/question/edit/:id"
+          element={
+            <PrivateRoute>
+              <EditQuestion />
+            </PrivateRoute>
+          }
+        />
+        <Route
           path="/managelisting"
           element={
             <PrivateRoute>
@@ -86,7 +96,16 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/managequestions"
+          element={
+            <PrivateRoute>
+              <MagageQuestions />
+            </PrivateRoute>
+          }
+        />
       </Routes>
+
       <Footer />
     </MainFont>
   );
