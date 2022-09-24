@@ -27,7 +27,7 @@ const Record = (props) => (
   </Container>
 );
 
-export default function Reviews() {
+export default function Reviews2() {
   const [records, setRecords] = useState([]);
   let url;
   // This method fetches the records from the database.

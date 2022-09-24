@@ -47,6 +47,31 @@ apiRoutes.route("/user/add").post(function (req, response) {
   });
 });
 
+apiRoutes.route("/review").get(function (req, res) {
+  let db_connect = dbo.getDb("LeafTrade");
+  db_connect
+    .collection("reviews")
+    .find({})
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
+apiRoutes.route("/review/add").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let myobj = {
+    rate: req.body.name,
+    review: req.body.review,
+    productId: req.body.productId,
+    userId: req.body.userId,
+  };
+  db_connect.collection("reviews").insertOne(myobj, function (err, res) {
+    if (err) throw err;
+    response.json(res);
+  });
+});
+
 // This section will help you get a list of all the products.
 apiRoutes.route("/product").get(function (req, res) {
   let db_connect = dbo.getDb("LeafTrade");

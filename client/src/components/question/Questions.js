@@ -11,7 +11,6 @@ import {
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
-import ProductView from "../product/ProductView";
 
 const Box = styled.div`
   margin: 32px;
