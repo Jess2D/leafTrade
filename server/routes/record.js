@@ -47,6 +47,51 @@ apiRoutes.route("/user/add").post(function (req, response) {
   });
 });
 
+apiRoutes.route("/question").get(function (req, res) {
+  let db_connect = dbo.getDb("LeafTrade");
+  db_connect
+    .collection("questions")
+    .find({})
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
+apiRoutes.route("/question/add").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let myobj = {
+    question: req.body.question,
+    answer: req.body.answer,
+    productId: req.body.productId,
+    userId: req.body.userId,
+  };
+  db_connect.collection("questions").insertOne(myobj, function (err, res) {
+    if (err) throw err;
+    response.json(res);
+  });
+});
+
+apiRoutes.route("/question/update/:id").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let myquery = { _id: ObjectId(req.params.id) };
+  let newvalues = {
+    $set: {
+      question: req.body.question,
+      answer: req.body.answer,
+      productId: req.body.productId,
+      userId: req.body.userId,
+    },
+  };
+  db_connect
+    .collection("questions")
+    .updateOne(myquery, newvalues, function (err, res) {
+      if (err) throw err;
+      console.log("question updated");
+      response.json(res);
+    });
+});
+
 apiRoutes.route("/review").get(function (req, res) {
   let db_connect = dbo.getDb("LeafTrade");
   db_connect
@@ -61,7 +106,7 @@ apiRoutes.route("/review").get(function (req, res) {
 apiRoutes.route("/review/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
-    rate: req.body.name,
+    rate: req.body.rate,
     review: req.body.review,
     productId: req.body.productId,
     userId: req.body.userId,

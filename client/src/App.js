@@ -16,7 +16,7 @@ import ManageListing from "./components/listing/ManageListing";
 import MagageAll from "./components/listing/ManageAll";
 import Edit from "./components/listing/Edit";
 import { Logout } from "./components/login/Logout";
-import Reviews2 from "./components/review/Reviews2";
+import NewQuestion from "./components/question/NewQuestion";
 
 const useAuth = () => {
   const user = sessionStorage.getItem("user");
@@ -39,19 +39,26 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/product/:id" element={<Product />}>
-          <Route path="reviews" element={<Reviews2 />} />
+          <Route path="reviews" element={<Reviews />} />
           <Route path="qa" element={<Questions />} />
         </Route>
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product/user/:listing" element={<ManageListing />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/reviews" element={<Reviews2 />} />
         <Route
           path="/newreview/:id"
           element={
             <PrivateRoute>
               <NewReview />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/newquestion/:id"
+          element={
+            <PrivateRoute>
+              <NewQuestion />
             </PrivateRoute>
           }
         />
