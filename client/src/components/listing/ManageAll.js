@@ -120,15 +120,16 @@ export default function MagageAll() {
 
       <MainContent>
         <Container>
-          <Button
-            className="fw-bold"
-            href="/newlisting"
-            variant="dark"
-            type="button"
-          >
-            New Listing
-          </Button>
-          <Margin>
+          <div className="d-flex gap-3">
+            {" "}
+            <Button
+              className="fw-bold"
+              href="/newlisting"
+              variant="dark"
+              type="button"
+            >
+              New Listing
+            </Button>
             <Button
               className="fw-bold"
               href="/managequestions"
@@ -137,7 +138,7 @@ export default function MagageAll() {
             >
               Answer questions
             </Button>
-          </Margin>
+          </div>
         </Container>
         <Container>
           <table className="table table-striped" style={{ marginTop: 20 }}>
