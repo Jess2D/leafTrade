@@ -1,0 +1,8 @@
+{
+    "app_id": "leaftradeapp-hfuqw",
+    "config_version": 20210101,
+    "name": "leaftradeapp",
+    "location": "AU",
+    "provider_region": "aws-ap-southeast-2",
+    "deployment_model": "LOCAL"
+}
