@@ -1,5 +1,7 @@
 # Leaf Trade
 
+[Live Demo](https://main--leaftrade.netlify.app/)🚀
+
 ![logo](https://raw.githubusercontent.com/Jess2D/leafTrade/main/client/src/assets/logo.png)
 
 ## Purpose
