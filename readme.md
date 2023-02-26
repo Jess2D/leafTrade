@@ -1,6 +1,5 @@
 # Leaf Trade
 
-[Live Demo](https://main--leaftrade.netlify.app/)🚀
 
 ![logo](https://raw.githubusercontent.com/Jess2D/leafTrade/main/client/src/assets/logo.png)
 
@@ -14,7 +13,8 @@ The intention of this project is to develop an MVP(minimum viable product) of a 
 
 Leaf Trade is a full-stack MERN application. To achieve this solution we are working with React to implement the presentation layer, Express and Node to make up the middle or application layer, and MongoDB to create the database layer.
 
-:globe_with_meridians: [Live Demo](link netlify)
+:globe_with_meridians: 
+[Live Demo](https://main--leaftrade.netlify.app/)
 
 ## Features
 
